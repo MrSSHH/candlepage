@@ -12,7 +12,11 @@
 <meta property="og:title" content="Candlepage: PDF Dark Mode for Chrome">
 <meta property="og:description" content="Dark PDFs where pictures keep their original colors. Free Chrome extension.">
 <meta property="og:url" content="https://mrsshh.github.io/candlepage/">
-<meta name="twitter:card" content="summary">
+<meta property="og:image" content="https://mrsshh.github.io/candlepage/img/realestate.jpg">
+<meta property="og:image:width" content="1280">
+<meta property="og:image:height" content="800">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://mrsshh.github.io/candlepage/img/realestate.jpg">
 <meta name="twitter:title" content="Candlepage: PDF Dark Mode for Chrome">
 <meta name="twitter:description" content="Dark PDFs where pictures keep their original colors. Free Chrome extension.">
 <script type="application/ld+json">
@@ -77,6 +81,13 @@ h1{font-size:clamp(36px,7vw,68px);font-weight:700;max-width:16ch}
 .s-inv .pic{filter:invert(1) hue-rotate(0deg)}
 .s-cp{--ink:#e9dfcd;--rule:#3b342a;background:#17140f}
 
+.shot{margin:0;display:flex;flex-direction:column;gap:10px;min-width:0}
+.shot img{display:block;width:100%;height:auto;border-radius:12px;border:1px solid var(--line)}
+.shot figcaption{font-size:14px;color:var(--muted)}
+.hero-shot{margin-block:40px 20px}
+.hero-shot figcaption{font-size:15px}
+.shots{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
+@media (max-width:560px){.shots{grid-template-columns:minmax(0,1fr)}}
 section{padding-block:56px}
 h2{font-size:clamp(28px,4.5vw,40px);margin-bottom:28px}
 .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:28px 32px}
@@ -126,21 +137,27 @@ footer a{text-underline-offset:3px}
         <a class="btn ghost" href="https://ko-fi.com/benm" data-en="Support the project" data-he="תמיכה בפרויקט">Support the project</a>
       </div>
 
-      <div class="compare" role="img" aria-label="Three pages side by side: the original white page, a plain color inversion with a negative-looking picture, and Candlepage with a dark page and the picture in its original colors"
-           data-en-label="Three pages side by side: the original white page, a plain color inversion with a negative-looking picture, and Candlepage with a dark page and the picture in its original colors"
-           data-he-label="שלושה דפים זה לצד זה: הדף הלבן המקורי, היפוך צבעים רגיל עם תמונה שנראית כנגטיב, ו-Candlepage עם דף כהה ותמונה בצבעים המקוריים">
-        <div class="panel">
-          <div class="sheet s-orig"><div class="t h"></div><div class="l"></div><div class="l"></div><div class="l s"></div><div class="pic"></div><div class="l"></div><div class="l s"></div></div>
-          <div class="cap"><b data-en="Original" data-he="מקור">Original</b><span data-en="Bright at night" data-he="בוהק בלילה">Bright at night</span></div>
-        </div>
-        <div class="panel">
-          <div class="sheet s-inv"><div class="t h"></div><div class="l"></div><div class="l"></div><div class="l s"></div><div class="pic"></div><div class="l"></div><div class="l s"></div></div>
-          <div class="cap"><b data-en="Plain invert" data-he="היפוך רגיל">Plain invert</b><span data-en="Picture turns negative" data-he="התמונה הופכת לנגטיב">Picture turns negative</span></div>
-        </div>
-        <div class="panel">
-          <div class="sheet s-cp"><div class="t h"></div><div class="l"></div><div class="l"></div><div class="l s"></div><div class="pic"></div><div class="l"></div><div class="l s"></div></div>
-          <div class="cap"><b data-en="Candlepage" data-he="Candlepage">Candlepage</b><span data-en="Dark page, true colors" data-he="דף כהה, צבעים אמיתיים">Dark page, true colors</span></div>
-        </div>
+      <figure class="shot hero-shot">
+        <img src="img/realestate.webp" width="1280" height="800" alt="A real estate flyer in Candlepage dark mode: the page is dark and the apartment photos keep their original colors">
+        <figcaption data-en="Dark page, photos in their original colors" data-he="דף כהה, תמונות בצבעים המקוריים">Dark page, photos in their original colors</figcaption>
+      </figure>
+      <div class="shots">
+        <figure class="shot">
+          <img src="img/travel.webp" loading="lazy" width="1280" height="800" alt="A travel guide cover with a colorful sunset image kept in its true colors">
+          <figcaption data-en="Not a negative: true image colors" data-he="לא נגטיב: צבעי תמונה אמיתיים">Not a negative: true image colors</figcaption>
+        </figure>
+        <figure class="shot">
+          <img src="img/chart.webp" loading="lazy" width="1280" height="800" alt="A page with a colorful bar chart that stays colorful in dark mode">
+          <figcaption data-en="Charts and figures stay colorful" data-he="גרפים ותרשימים נשארים צבעוניים">Charts and figures stay colorful</figcaption>
+        </figure>
+        <figure class="shot">
+          <img src="img/paper.webp" loading="lazy" width="1280" height="800" alt="A research paper in dark mode">
+          <figcaption data-en="Made for long study sessions" data-he="בנוי לשעות לימוד ארוכות">Made for long study sessions</figcaption>
+        </figure>
+        <figure class="shot">
+          <img src="img/math.webp" loading="lazy" width="1280" height="800" alt="A math worksheet with fractions and equations in dark mode">
+          <figcaption data-en="Math worksheets, easy on the eyes" data-he="דפי מתמטיקה, נוחים לעיניים">Math worksheets, easy on the eyes</figcaption>
+        </figure>
       </div>
     </div>
 
