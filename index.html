@@ -6,6 +6,9 @@
 <title>Candlepage: PDF Dark Mode for Chrome</title>
 <meta name="description" content="Candlepage is a free Chrome extension that turns PDFs dark and keeps images in their original colors. Works on online and local PDFs, in English and Hebrew.">
 <meta name="color-scheme" content="light dark">
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="192x192" href="img/icon-192.png">
+<link rel="apple-touch-icon" href="img/apple-touch-icon.png">
 <link rel="canonical" href="https://mrsshh.github.io/candlepage/">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Candlepage">
@@ -20,7 +23,7 @@
 <meta name="twitter:title" content="Candlepage: PDF Dark Mode for Chrome">
 <meta name="twitter:description" content="Dark PDFs where pictures keep their original colors. Free Chrome extension.">
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Candlepage: PDF Dark Mode","applicationCategory":"BrowserApplication","operatingSystem":"Chrome","description":"Candlepage is a free Chrome extension that turns PDFs dark and keeps images in their original colors. Works on online and local PDFs, in English and Hebrew.","url":"https://mrsshh.github.io/candlepage/","downloadUrl":"https://chromewebstore.google.com/detail/candlepage-pdf-dark-mode/dppgdlndkhpjjljmjlllmpefibbihilb","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"inLanguage":["en","he"]}
+{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Candlepage: PDF Dark Mode","applicationCategory":"BrowserApplication","operatingSystem":"Chrome","description":"Candlepage is a free Chrome extension that turns PDFs dark and keeps images in their original colors. Works on online and local PDFs, in English and Hebrew.","url":"https://mrsshh.github.io/candlepage/","image":"https://mrsshh.github.io/candlepage/img/icon-512.png","downloadUrl":"https://chromewebstore.google.com/detail/candlepage-pdf-dark-mode/dppgdlndkhpjjljmjlllmpefibbihilb","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"inLanguage":["en","he"]}
 </script>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Instrument+Sans:wght@400;500;600&family=Heebo:wght@400;500;700&display=swap">
 <style>
@@ -52,6 +55,7 @@ a{color:inherit}
 
 .top{display:flex;align-items:center;justify-content:space-between;gap:12px;padding-block:20px}
 .brand{display:flex;align-items:center;gap:10px;font-family:var(--font-display);font-weight:700;font-size:20px}
+.logo{width:32px;height:32px;border-radius:8px;flex:none}
 .flame{width:14px;height:22px;background:var(--amber);border-radius:50% 50% 50% 50%/65% 65% 35% 35%;box-shadow:0 0 18px var(--amber);flex:none}
 .lang{display:flex;gap:4px;background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:3px}
 .lang button{font:inherit;font-size:14px;border:0;background:transparent;color:var(--muted);padding:6px 14px;border-radius:999px;cursor:pointer}
@@ -119,7 +123,7 @@ footer a{text-underline-offset:3px}
 <body>
 <div class="wrap">
   <header class="top">
-    <div class="brand"><span class="flame" aria-hidden="true"></span>Candlepage</div>
+    <div class="brand"><img class="logo" src="img/icon-64.png" width="32" height="32" alt="">Candlepage</div>
     <div class="lang" role="group" aria-label="Language">
       <button id="b-en" type="button" aria-pressed="true">EN</button>
       <button id="b-he" type="button" aria-pressed="false">עברית</button>
