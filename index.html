@@ -1,5 +1,23 @@
-<title>Candlepage</title>
-<meta name="claude:viewport-fit-sides" content="cover">
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Candlepage: PDF Dark Mode for Chrome</title>
+<meta name="description" content="Candlepage is a free Chrome extension that turns PDFs dark and keeps images in their original colors. Works on online and local PDFs, in English and Hebrew.">
+<meta name="color-scheme" content="light dark">
+<link rel="canonical" href="https://mrsshh.github.io/candlepage/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Candlepage">
+<meta property="og:title" content="Candlepage: PDF Dark Mode for Chrome">
+<meta property="og:description" content="Dark PDFs where pictures keep their original colors. Free Chrome extension.">
+<meta property="og:url" content="https://mrsshh.github.io/candlepage/">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Candlepage: PDF Dark Mode for Chrome">
+<meta name="twitter:description" content="Dark PDFs where pictures keep their original colors. Free Chrome extension.">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Candlepage: PDF Dark Mode","applicationCategory":"BrowserApplication","operatingSystem":"Chrome","description":"Candlepage is a free Chrome extension that turns PDFs dark and keeps images in their original colors. Works on online and local PDFs, in English and Hebrew.","url":"https://mrsshh.github.io/candlepage/","downloadUrl":"https://chromewebstore.google.com/detail/candlepage-pdf-dark-mode/dppgdlndkhpjjljmjlllmpefibbihilb","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"inLanguage":["en","he"]}
+</script>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Instrument+Sans:wght@400;500;600&family=Heebo:wght@400;500;700&display=swap">
 <style>
 /* Layout: one centered column; hero states the thesis with a three-way page comparison (original / plain invert / Candlepage). Amber is the only accent. */
@@ -86,7 +104,8 @@ footer a{text-underline-offset:3px}
   @keyframes flick{0%,100%{transform:scaleY(1)}50%{transform:scaleY(1.08) scaleX(.94)}}
 }
 </style>
-
+</head>
+<body>
 <div class="wrap">
   <header class="top">
     <div class="brand"><span class="flame" aria-hidden="true"></span>Candlepage</div>
@@ -98,7 +117,7 @@ footer a{text-underline-offset:3px}
 
   <main>
     <div class="hero">
-      <p class="eyebrow" data-en="Chrome extension for PDF readers" data-he="תוסף כרום לקוראי PDF">Chrome extension for PDF readers</p>
+      <p class="eyebrow" data-en="PDF dark mode for Chrome" data-he="מצב כהה ל-PDF בכרום">PDF dark mode for Chrome</p>
       <h1 data-en="Dark PDFs. Pictures keep their colors." data-he="PDF כהה. התמונות נשארות בצבעים שלהן.">Dark PDFs. Pictures keep their colors.</h1>
       <p class="lede" data-en="Most dark mode tools flip every pixel, so photos and diagrams turn into negatives. Candlepage darkens the page and leaves the images alone, so you can read at 2am without squinting."
          data-he="רוב הכלים למצב כהה הופכים כל פיקסל, ולכן תמונות ותרשימים נראים כמו נגטיב. Candlepage מחשיך את הדף ומשאיר את התמונות כמו שהן, כדי שתוכלו ללמוד בשתיים בלילה בלי לכווץ את העיניים.">Most dark mode tools flip every pixel, so photos and diagrams turn into negatives. Candlepage darkens the page and leaves the images alone, so you can read at 2am without squinting.</p>
@@ -184,3 +203,6 @@ footer a{text-underline-offset:3px}
   if(saved==='he'||(!saved&&(navigator.language||'').toLowerCase().indexOf('he')===0)) set('he');
 })();
 </script>
+
+</body>
+</html>
