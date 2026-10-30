@@ -1,0 +1,186 @@
+<title>Candlepage</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Instrument+Sans:wght@400;500;600&family=Heebo:wght@400;500;700&display=swap">
+<style>
+/* Layout: one centered column; hero states the thesis with a three-way page comparison (original / plain invert / Candlepage). Amber is the only accent. */
+:root{
+  --bg:#f4f3f0; --surface:#ffffff; --fg:#1d1a16; --muted:#6b645b; --line:#dcd8d0;
+  --amber:#c77a0a; --amber-ink:#ffffff; --amber-soft:#fbead0;
+  --page-bg:#ffffff; --page-ink:#2b2b2b; --page-rule:#d9d9d9;
+  --font-display:"Bricolage Grotesque","Heebo",system-ui,sans-serif;
+  --font-body:"Instrument Sans","Heebo",system-ui,sans-serif;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#15120f; --surface:#1f1b16; --fg:#f1ece3; --muted:#a39a8c; --line:#352f27;
+    --amber:#f2a73b; --amber-ink:#1a1206; --amber-soft:#3a2a10; color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#15120f; --surface:#1f1b16; --fg:#f1ece3; --muted:#a39a8c; --line:#352f27;
+  --amber:#f2a73b; --amber-ink:#1a1206; --amber-soft:#3a2a10; color-scheme:dark;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--font-body);font-size:16px;line-height:1.6;
+  padding-block:0;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.wrap{max-width:980px;margin:0 auto}
+h1,h2,h3{font-family:var(--font-display);line-height:1.1;margin:0;text-wrap:balance}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--amber);outline-offset:3px;border-radius:6px}
+
+.top{display:flex;align-items:center;justify-content:space-between;gap:12px;padding-block:20px}
+.brand{display:flex;align-items:center;gap:10px;font-family:var(--font-display);font-weight:700;font-size:20px}
+.flame{width:14px;height:22px;background:var(--amber);border-radius:50% 50% 50% 50%/65% 65% 35% 35%;box-shadow:0 0 18px var(--amber);flex:none}
+.lang{display:flex;gap:4px;background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:3px}
+.lang button{font:inherit;font-size:14px;border:0;background:transparent;color:var(--muted);padding:6px 14px;border-radius:999px;cursor:pointer}
+.lang button[aria-pressed="true"]{background:var(--amber);color:var(--amber-ink);font-weight:600}
+
+.hero{padding-block:36px 24px}
+.eyebrow{font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin:0 0 14px}
+h1{font-size:clamp(36px,7vw,68px);font-weight:700;max-width:16ch}
+.lede{font-size:clamp(17px,2.4vw,20px);color:var(--muted);max-width:52ch;margin:20px 0 28px}
+.cta{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+.btn{display:inline-block;text-decoration:none;font-weight:600;padding:14px 24px;border-radius:12px;background:var(--amber);color:var(--amber-ink)}
+.btn:hover{filter:brightness(1.07)}
+.btn.ghost{background:transparent;color:var(--fg);border:1px solid var(--line)}
+
+.compare{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-block:40px 8px}
+.panel{display:flex;flex-direction:column;gap:10px;min-width:0}
+.panel .cap{font-size:14px;color:var(--muted)}
+.panel .cap b{color:var(--fg);font-weight:600;display:block}
+.sheet{aspect-ratio:3/4;border-radius:10px;border:1px solid var(--line);padding:12% 11%;display:flex;flex-direction:column;gap:7px;overflow:hidden;max-width:100%}
+.sheet .t{height:9px;border-radius:2px;background:var(--ink)}
+.sheet .t.h{height:13px;width:62%;margin-bottom:6px}
+.sheet .l{height:5px;border-radius:2px;background:var(--rule)}
+.sheet .l.s{width:78%}
+.sheet .pic{flex:1;min-height:60px;border-radius:5px;margin-block:6px;background:linear-gradient(160deg,#ff9a3c 0%,#e8454e 45%,#3b5bdb 100%)}
+.s-orig{--ink:#2b2b2b;--rule:#d9d9d9;background:#fff}
+.s-inv{--ink:#d4d4d4;--rule:#3a3a3a;background:#111}
+.s-inv .pic{filter:invert(1) hue-rotate(0deg)}
+.s-cp{--ink:#e9dfcd;--rule:#3b342a;background:#17140f}
+
+section{padding-block:56px}
+h2{font-size:clamp(28px,4.5vw,40px);margin-bottom:28px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:28px 32px}
+.feat h3{font-size:19px;margin-bottom:6px}
+.feat p{margin:0;color:var(--muted)}
+.opt{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:28px}
+.opt ul{margin:14px 0 0;padding-inline-start:20px;color:var(--muted)}
+.tag{display:inline-block;font-size:12px;letter-spacing:.06em;text-transform:uppercase;background:var(--amber-soft);color:var(--fg);padding:3px 10px;border-radius:999px;margin-inline-start:8px;vertical-align:middle}
+.final{background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:clamp(24px,5vw,48px);text-align:center}
+.final p{color:var(--muted);max-width:50ch;margin:0 auto 24px}
+.final .cta{justify-content:center}
+.mail{margin-top:20px;font-size:14px;color:var(--muted)}
+.mail code{font-family:inherit;color:var(--fg);user-select:all}
+footer{display:flex;flex-wrap:wrap;gap:12px 24px;justify-content:space-between;padding-block:32px 40px;color:var(--muted);font-size:14px;border-top:1px solid var(--line)}
+footer a{text-underline-offset:3px}
+
+@media (max-width:640px){
+  .compare{grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+  .sheet{padding:10% 9%;gap:5px}
+  .panel .cap{font-size:12px}
+  .opt{padding:20px}
+}
+@media (prefers-reduced-motion:no-preference){
+  .flame{animation:flick 3s ease-in-out infinite}
+  @keyframes flick{0%,100%{transform:scaleY(1)}50%{transform:scaleY(1.08) scaleX(.94)}}
+}
+</style>
+
+<div class="wrap">
+  <header class="top">
+    <div class="brand"><span class="flame" aria-hidden="true"></span>Candlepage</div>
+    <div class="lang" role="group" aria-label="Language">
+      <button id="b-en" type="button" aria-pressed="true">EN</button>
+      <button id="b-he" type="button" aria-pressed="false">עברית</button>
+    </div>
+  </header>
+
+  <main>
+    <div class="hero">
+      <p class="eyebrow" data-en="Chrome extension for PDF readers" data-he="תוסף כרום לקוראי PDF">Chrome extension for PDF readers</p>
+      <h1 data-en="Dark PDFs. Pictures keep their colors." data-he="PDF כהה. התמונות נשארות בצבעים שלהן.">Dark PDFs. Pictures keep their colors.</h1>
+      <p class="lede" data-en="Most dark mode tools flip every pixel, so photos and diagrams turn into negatives. Candlepage darkens the page and leaves the images alone, so you can read at 2am without squinting."
+         data-he="רוב הכלים למצב כהה הופכים כל פיקסל, ולכן תמונות ותרשימים נראים כמו נגטיב. Candlepage מחשיך את הדף ומשאיר את התמונות כמו שהן, כדי שתוכלו ללמוד בשתיים בלילה בלי לכווץ את העיניים.">Most dark mode tools flip every pixel, so photos and diagrams turn into negatives. Candlepage darkens the page and leaves the images alone, so you can read at 2am without squinting.</p>
+      <div class="cta">
+        <a class="btn" href="https://chromewebstore.google.com/detail/candlepage-pdf-dark-mode/dppgdlndkhpjjljmjlllmpefibbihilb" data-en="Add to Chrome" data-he="הוספה ל-Chrome">Add to Chrome</a>
+        <a class="btn ghost" href="https://ko-fi.com/benm" data-en="Support the project" data-he="תמיכה בפרויקט">Support the project</a>
+      </div>
+
+      <div class="compare" role="img" aria-label="Three pages side by side: the original white page, a plain color inversion with a negative-looking picture, and Candlepage with a dark page and the picture in its original colors"
+           data-en-label="Three pages side by side: the original white page, a plain color inversion with a negative-looking picture, and Candlepage with a dark page and the picture in its original colors"
+           data-he-label="שלושה דפים זה לצד זה: הדף הלבן המקורי, היפוך צבעים רגיל עם תמונה שנראית כנגטיב, ו-Candlepage עם דף כהה ותמונה בצבעים המקוריים">
+        <div class="panel">
+          <div class="sheet s-orig"><div class="t h"></div><div class="l"></div><div class="l"></div><div class="l s"></div><div class="pic"></div><div class="l"></div><div class="l s"></div></div>
+          <div class="cap"><b data-en="Original" data-he="מקור">Original</b><span data-en="Bright at night" data-he="בוהק בלילה">Bright at night</span></div>
+        </div>
+        <div class="panel">
+          <div class="sheet s-inv"><div class="t h"></div><div class="l"></div><div class="l"></div><div class="l s"></div><div class="pic"></div><div class="l"></div><div class="l s"></div></div>
+          <div class="cap"><b data-en="Plain invert" data-he="היפוך רגיל">Plain invert</b><span data-en="Picture turns negative" data-he="התמונה הופכת לנגטיב">Picture turns negative</span></div>
+        </div>
+        <div class="panel">
+          <div class="sheet s-cp"><div class="t h"></div><div class="l"></div><div class="l"></div><div class="l s"></div><div class="pic"></div><div class="l"></div><div class="l s"></div></div>
+          <div class="cap"><b data-en="Candlepage" data-he="Candlepage">Candlepage</b><span data-en="Dark page, true colors" data-he="דף כהה, צבעים אמיתיים">Dark page, true colors</span></div>
+        </div>
+      </div>
+    </div>
+
+    <section aria-labelledby="why">
+      <h2 id="why" data-en="Built for long reading sessions" data-he="בנוי לשעות קריאה ארוכות">Built for long reading sessions</h2>
+      <div class="grid">
+        <div class="feat"><h3 data-en="Works on any PDF" data-he="עובד על כל PDF">Works on any PDF</h3><p data-en="Open a PDF from a website or from your computer and read it in dark mode." data-he="פותחים PDF מאתר או מהמחשב וקוראים אותו במצב כהה.">Open a PDF from a website or from your computer and read it in dark mode.</p></div>
+        <div class="feat"><h3 data-en="Images stay true" data-he="תמונות נשארות אמיתיות">Images stay true</h3><p data-en="Photos, charts and book covers keep their original colors instead of turning into negatives." data-he="תמונות, גרפים וכריכות שומרים על הצבעים המקוריים במקום להפוך לנגטיב.">Photos, charts and book covers keep their original colors instead of turning into negatives.</p></div>
+        <div class="feat"><h3 data-en="Hebrew and English" data-he="עברית ואנגלית">Hebrew and English</h3><p data-en="The interface works in both languages, including right-to-left layout." data-he="הממשק עובד בשתי השפות, כולל פריסה מימין לשמאל.">The interface works in both languages, including right-to-left layout.</p></div>
+        <div class="feat"><h3 data-en="Clean and minimal" data-he="נקי ומינימלי">Clean and minimal</h3><p data-en="A simple, iOS-style viewer that stays out of the way while you read." data-he="מציג פשוט בסגנון iOS שלא מפריע לכם בזמן הקריאה.">A simple, iOS-style viewer that stays out of the way while you read.</p></div>
+      </div>
+    </section>
+
+    <section aria-labelledby="extras">
+      <div class="opt">
+        <h2 id="extras" style="margin-bottom:8px" data-en="Extras, only when you want them" data-he="תוספות, רק כשאתם רוצים">Extras, only when you want them</h2>
+        <p style="margin:0;color:var(--muted)" data-en="These are off by default. Turn them on in settings." data-he="אלה כבויים כברירת מחדל. מפעילים אותם בהגדרות.">These are off by default. Turn them on in settings.</p>
+        <ul>
+          <li><span data-en="Math tools" data-he="כלי מתמטיקה">Math tools</span><span class="tag" data-en="Experimental" data-he="ניסיוני">Experimental</span></li>
+          <li data-en="Library and reading history" data-he="ספרייה והיסטוריית קריאה">Library and reading history</li>
+          <li data-en="Google Drive" data-he="Google Drive">Google Drive</li>
+        </ul>
+      </div>
+    </section>
+
+    <section>
+      <div class="final">
+        <h2 style="margin-bottom:12px" data-en="Read easier tonight" data-he="לקרוא בנוחות כבר הלילה">Read easier tonight</h2>
+        <p data-en="Candlepage is a solo project. Found a bug or have an idea? I read every message." data-he="Candlepage הוא פרויקט של אדם אחד. מצאתם באג או יש לכם רעיון? אני קורא כל הודעה.">Candlepage is a solo project. Found a bug or have an idea? I read every message.</p>
+        <div class="cta">
+          <a class="btn" href="https://chromewebstore.google.com/detail/candlepage-pdf-dark-mode/dppgdlndkhpjjljmjlllmpefibbihilb" data-en="Add to Chrome" data-he="הוספה ל-Chrome">Add to Chrome</a>
+        </div>
+        <p class="mail"><span data-en="Bug reports:" data-he="דיווח על באגים:">Bug reports:</span> <code dir="ltr">ben.meitav.work@gmail.com</code></p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <a href="https://mrsshh.github.io/pdf-dark-mode-privacy/privacy-policy.html" data-en="Privacy policy" data-he="מדיניות פרטיות">Privacy policy</a>
+    <a href="https://ko-fi.com/benm" data-en="Support on Ko-fi" data-he="תמיכה ב-Ko-fi">Support on Ko-fi</a>
+  </footer>
+</div>
+
+<script>
+(function(){
+  var html=document.documentElement;
+  var bEn=document.getElementById('b-en'), bHe=document.getElementById('b-he');
+  function set(lang){
+    html.lang=lang; html.dir=lang==='he'?'rtl':'ltr';
+    document.querySelectorAll('[data-en]').forEach(function(el){
+      var v=el.getAttribute('data-'+lang); if(v!==null) el.textContent=v;
+    });
+    var c=document.querySelector('.compare'); if(c) c.setAttribute('aria-label',c.getAttribute('data-'+lang+'-label'));
+    bEn.setAttribute('aria-pressed',lang==='en'); bHe.setAttribute('aria-pressed',lang==='he');
+    try{localStorage.setItem('cp-lang',lang)}catch(e){}
+  }
+  bEn.addEventListener('click',function(){set('en')});
+  bHe.addEventListener('click',function(){set('he')});
+  var saved=null; try{saved=localStorage.getItem('cp-lang')}catch(e){}
+  if(saved==='he'||(!saved&&(navigator.language||'').toLowerCase().indexOf('he')===0)) set('he');
+})();
+</script>
