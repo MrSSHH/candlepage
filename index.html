@@ -3,16 +3,19 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Candlepage: PDF Dark Mode for Chrome</title>
+<title>Candlepage: PDF Dark Mode for Chrome – Images Keep Their Colors</title>
 <meta name="description" content="Candlepage is a free Chrome extension that turns PDFs dark and keeps images in their original colors. Works on online and local PDFs, in English and Hebrew.">
 <meta name="color-scheme" content="light dark">
 <link rel="icon" href="favicon.ico" sizes="any">
 <link rel="icon" type="image/png" sizes="192x192" href="img/icon-192.png">
 <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
 <link rel="canonical" href="https://mrsshh.github.io/candlepage/">
+<link rel="alternate" hreflang="en" href="https://mrsshh.github.io/candlepage/">
+<link rel="alternate" hreflang="he" href="https://mrsshh.github.io/candlepage/he/">
+<link rel="alternate" hreflang="x-default" href="https://mrsshh.github.io/candlepage/">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Candlepage">
-<meta property="og:title" content="Candlepage: PDF Dark Mode for Chrome">
+<meta property="og:title" content="Candlepage: PDF Dark Mode for Chrome – Images Keep Their Colors">
 <meta property="og:description" content="Dark PDFs where pictures keep their original colors. Free Chrome extension.">
 <meta property="og:url" content="https://mrsshh.github.io/candlepage/">
 <meta property="og:image" content="https://mrsshh.github.io/candlepage/img/og.jpg">
@@ -20,7 +23,7 @@
 <meta property="og:image:height" content="800">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://mrsshh.github.io/candlepage/img/og.jpg">
-<meta name="twitter:title" content="Candlepage: PDF Dark Mode for Chrome">
+<meta name="twitter:title" content="Candlepage: PDF Dark Mode for Chrome – Images Keep Their Colors">
 <meta name="twitter:description" content="Dark PDFs where pictures keep their original colors. Free Chrome extension.">
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"SoftwareApplication","name":"Candlepage: PDF Dark Mode","applicationCategory":"BrowserApplication","operatingSystem":"Chrome","description":"Candlepage is a free Chrome extension that turns PDFs dark and keeps images in their original colors. Works on online and local PDFs, in English and Hebrew.","url":"https://mrsshh.github.io/candlepage/","image":"https://mrsshh.github.io/candlepage/img/icon-512.png","downloadUrl":"https://chromewebstore.google.com/detail/candlepage-pdf-dark-mode/dppgdlndkhpjjljmjlllmpefibbihilb","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"inLanguage":["en","he"]}
@@ -186,6 +189,16 @@ footer a{text-underline-offset:3px}
       </div>
     </section>
 
+    <section aria-labelledby="faq">
+      <h2 id="faq" style="margin-bottom:16px" data-en="Questions" data-he="שאלות נפוצות">Questions</h2>
+      <div class="grid">
+        <div class="feat"><h3 data-en="How do I get dark mode on PDF files saved on my computer?" data-he="איך מפעילים מצב כהה על קבצי PDF מהמחשב?">How do I get dark mode on PDF files saved on my computer?</h3><p data-en="Chrome blocks extensions from local files by default. Open chrome://extensions, find Candlepage, click Details and turn on Allow access to file URLs. After that, PDFs you open from your computer get dark mode too." data-he="כרום חוסם תוספים מקבצים מקומיים כברירת מחדל. פותחים chrome://extensions, מוצאים את Candlepage, לוחצים על פרטים ומפעילים את Allow access to file URLs. מאותו רגע גם קבצי PDF מהמחשב נפתחים במצב כהה.">Chrome blocks extensions from local files by default. Open chrome://extensions, find Candlepage, click Details and turn on Allow access to file URLs. After that, PDFs you open from your computer get dark mode too.</p></div>
+        <div class="feat"><h3 data-en="Will photos and charts turn into negatives?" data-he="האם תמונות ותרשימים הופכים לנגטיב?">Will photos and charts turn into negatives?</h3><p data-en="No. Candlepage darkens the page and keeps pictures, charts and book covers in their original colors." data-he="לא. Candlepage מחשיך את הדף ומשאיר תמונות, תרשימים וכריכות בצבעים המקוריים.">No. Candlepage darkens the page and keeps pictures, charts and book covers in their original colors.</p></div>
+        <div class="feat"><h3 data-en="Is Candlepage free?" data-he="האם Candlepage חינמי?">Is Candlepage free?</h3><p data-en="Yes, it is a free Chrome extension. If it helps you, you can support the project on Ko-fi." data-he="כן, זה תוסף חינמי לכרום. אם הוא עוזר לכם, אפשר לתמוך בפרויקט ב-Ko-fi.">Yes, it is a free Chrome extension. If it helps you, you can support the project on Ko-fi.</p></div>
+        <div class="feat"><h3 data-en="What about my privacy?" data-he="מה לגבי הפרטיות שלי?">What about my privacy?</h3><p data-en="Anonymous problem reports are optional and are only sent if you agree. The privacy policy below explains exactly what is collected." data-he="דיווחי תקלות אנונימיים הם אופציונליים ונשלחים רק אם אתם מסכימים. מדיניות הפרטיות למטה מסבירה בדיוק מה נאסף.">Anonymous problem reports are optional and are only sent if you agree. The privacy policy below explains exactly what is collected.</p></div>
+      </div>
+    </section>
+
     <section>
       <div class="final">
         <h2 style="margin-bottom:12px" data-en="Read easier tonight" data-he="לקרוא בנוחות כבר הלילה">Read easier tonight</h2>
@@ -201,6 +214,7 @@ footer a{text-underline-offset:3px}
   <footer>
     <a href="https://mrsshh.github.io/pdf-dark-mode-privacy/privacy-policy.html" data-en="Privacy policy" data-he="מדיניות פרטיות">Privacy policy</a>
     <a href="https://ko-fi.com/benm" data-en="Support on Ko-fi" data-he="תמיכה ב-Ko-fi">Support on Ko-fi</a>
+    <a href="he/" hreflang="he" lang="he">עברית</a>
   </footer>
 </div>
 

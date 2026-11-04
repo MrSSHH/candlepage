@@ -1,0 +1,226 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Candlepage: מצב כהה ל-PDF בכרום, התמונות נשארות בצבע</title>
+<meta name="description" content="Candlepage הוא תוסף חינמי לכרום שהופך קבצי PDF לכהים ומשאיר את התמונות בצבעים המקוריים. עובד על PDF מהאינטרנט ומהמחשב, בעברית ובאנגלית.">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="../favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="192x192" href="../img/icon-192.png">
+<link rel="apple-touch-icon" href="../img/apple-touch-icon.png">
+<link rel="canonical" href="https://mrsshh.github.io/candlepage/he/">
+<link rel="alternate" hreflang="en" href="https://mrsshh.github.io/candlepage/">
+<link rel="alternate" hreflang="he" href="https://mrsshh.github.io/candlepage/he/">
+<link rel="alternate" hreflang="x-default" href="https://mrsshh.github.io/candlepage/">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="he_IL">
+<meta property="og:site_name" content="Candlepage">
+<meta property="og:title" content="Candlepage: מצב כהה ל-PDF בכרום">
+<meta property="og:description" content="PDF כהה שבו התמונות נשארות בצבע. תוסף חינמי לכרום.">
+<meta property="og:url" content="https://mrsshh.github.io/candlepage/he/">
+<meta property="og:image" content="https://mrsshh.github.io/candlepage/img/og.jpg">
+<meta property="og:image:width" content="1280">
+<meta property="og:image:height" content="800">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://mrsshh.github.io/candlepage/img/og.jpg">
+<meta name="twitter:title" content="Candlepage: מצב כהה ל-PDF בכרום">
+<meta name="twitter:description" content="PDF כהה שבו התמונות נשארות בצבע. תוסף חינמי לכרום.">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Candlepage: PDF Dark Mode","applicationCategory":"BrowserApplication","operatingSystem":"Chrome","description":"Candlepage הוא תוסף חינמי לכרום שהופך קבצי PDF לכהים ומשאיר את התמונות בצבעים המקוריים. עובד על PDF מהאינטרנט ומהמחשב, בעברית ובאנגלית.","url":"https://mrsshh.github.io/candlepage/he/","image":"https://mrsshh.github.io/candlepage/img/icon-512.png","downloadUrl":"https://chromewebstore.google.com/detail/candlepage-pdf-dark-mode/dppgdlndkhpjjljmjlllmpefibbihilb","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"inLanguage":"he"}
+</script>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Instrument+Sans:wght@400;500;600&family=Heebo:wght@400;500;700&display=swap">
+<style>
+/* Layout: one centered column; hero states the thesis with a three-way page comparison (original / plain invert / Candlepage). Amber is the only accent. */
+:root{
+  --bg:#f4f3f0; --surface:#ffffff; --fg:#1d1a16; --muted:#6b645b; --line:#dcd8d0;
+  --amber:#c77a0a; --amber-ink:#ffffff; --amber-soft:#fbead0;
+  --page-bg:#ffffff; --page-ink:#2b2b2b; --page-rule:#d9d9d9;
+  --font-display:"Bricolage Grotesque","Heebo",system-ui,sans-serif;
+  --font-body:"Instrument Sans","Heebo",system-ui,sans-serif;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#15120f; --surface:#1f1b16; --fg:#f1ece3; --muted:#a39a8c; --line:#352f27;
+    --amber:#f2a73b; --amber-ink:#1a1206; --amber-soft:#3a2a10; color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#15120f; --surface:#1f1b16; --fg:#f1ece3; --muted:#a39a8c; --line:#352f27;
+  --amber:#f2a73b; --amber-ink:#1a1206; --amber-soft:#3a2a10; color-scheme:dark;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--font-body);font-size:16px;line-height:1.6;
+  padding-block:0;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.wrap{max-width:980px;margin:0 auto}
+h1,h2,h3{font-family:var(--font-display);line-height:1.1;margin:0;text-wrap:balance}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--amber);outline-offset:3px;border-radius:6px}
+
+.top{display:flex;align-items:center;justify-content:space-between;gap:12px;padding-block:20px}
+.brand{display:flex;align-items:center;gap:10px;font-family:var(--font-display);font-weight:700;font-size:20px}
+.logo{width:32px;height:32px;border-radius:8px;flex:none}
+.flame{width:14px;height:22px;background:var(--amber);border-radius:50% 50% 50% 50%/65% 65% 35% 35%;box-shadow:0 0 18px var(--amber);flex:none}
+.lang{display:flex;gap:4px;background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:3px}
+.langlink,.langcur{font-size:14px;padding:6px 14px;border-radius:999px;text-decoration:none;color:var(--muted)}
+.langcur{background:var(--amber);color:var(--amber-ink);font-weight:600}
+.lang button{font:inherit;font-size:14px;border:0;background:transparent;color:var(--muted);padding:6px 14px;border-radius:999px;cursor:pointer}
+.lang button[aria-pressed="true"]{background:var(--amber);color:var(--amber-ink);font-weight:600}
+
+.hero{padding-block:36px 24px}
+.eyebrow{font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin:0 0 14px}
+h1{font-size:clamp(36px,7vw,68px);font-weight:700;max-width:16ch}
+.lede{font-size:clamp(17px,2.4vw,20px);color:var(--muted);max-width:52ch;margin:20px 0 28px}
+.cta{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+.btn{display:inline-block;text-decoration:none;font-weight:600;padding:14px 24px;border-radius:12px;background:var(--amber);color:var(--amber-ink)}
+.btn:hover{filter:brightness(1.07)}
+.btn.ghost{background:transparent;color:var(--fg);border:1px solid var(--line)}
+
+.compare{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-block:40px 8px}
+.panel{display:flex;flex-direction:column;gap:10px;min-width:0}
+.panel .cap{font-size:14px;color:var(--muted)}
+.panel .cap b{color:var(--fg);font-weight:600;display:block}
+.sheet{aspect-ratio:3/4;border-radius:10px;border:1px solid var(--line);padding:12% 11%;display:flex;flex-direction:column;gap:7px;overflow:hidden;max-width:100%}
+.sheet .t{height:9px;border-radius:2px;background:var(--ink)}
+.sheet .t.h{height:13px;width:62%;margin-bottom:6px}
+.sheet .l{height:5px;border-radius:2px;background:var(--rule)}
+.sheet .l.s{width:78%}
+.sheet .pic{flex:1;min-height:60px;border-radius:5px;margin-block:6px;background:linear-gradient(160deg,#ff9a3c 0%,#e8454e 45%,#3b5bdb 100%)}
+.s-orig{--ink:#2b2b2b;--rule:#d9d9d9;background:#fff}
+.s-inv{--ink:#d4d4d4;--rule:#3a3a3a;background:#111}
+.s-inv .pic{filter:invert(1) hue-rotate(0deg)}
+.s-cp{--ink:#e9dfcd;--rule:#3b342a;background:#17140f}
+
+.shot{margin:0;display:flex;flex-direction:column;gap:10px;min-width:0}
+.shot img{display:block;width:100%;height:auto;border-radius:12px;border:1px solid var(--line)}
+.shot figcaption{font-size:14px;color:var(--muted)}
+.hero-shot{margin-block:40px 20px}
+.hero-shot figcaption{font-size:15px}
+.shots{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
+@media (max-width:560px){.shots{grid-template-columns:minmax(0,1fr)}}
+section{padding-block:56px}
+h2{font-size:clamp(28px,4.5vw,40px);margin-bottom:28px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:28px 32px}
+.feat h3{font-size:19px;margin-bottom:6px}
+.feat p{margin:0;color:var(--muted)}
+.opt{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:28px}
+.opt ul{margin:14px 0 0;padding-inline-start:20px;color:var(--muted)}
+.tag{display:inline-block;font-size:12px;letter-spacing:.06em;text-transform:uppercase;background:var(--amber-soft);color:var(--fg);padding:3px 10px;border-radius:999px;margin-inline-start:8px;vertical-align:middle}
+.final{background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:clamp(24px,5vw,48px);text-align:center}
+.final p{color:var(--muted);max-width:50ch;margin:0 auto 24px}
+.final .cta{justify-content:center}
+.mail{margin-top:20px;font-size:14px;color:var(--muted)}
+.mail code{font-family:inherit;color:var(--fg);user-select:all}
+footer{display:flex;flex-wrap:wrap;gap:12px 24px;justify-content:space-between;padding-block:32px 40px;color:var(--muted);font-size:14px;border-top:1px solid var(--line)}
+footer a{text-underline-offset:3px}
+
+@media (max-width:640px){
+  .compare{grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+  .sheet{padding:10% 9%;gap:5px}
+  .panel .cap{font-size:12px}
+  .opt{padding:20px}
+}
+@media (prefers-reduced-motion:no-preference){
+  .flame{animation:flick 3s ease-in-out infinite}
+  @keyframes flick{0%,100%{transform:scaleY(1)}50%{transform:scaleY(1.08) scaleX(.94)}}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <div class="brand"><img class="logo" src="../img/icon-64.png" width="32" height="32" alt="">Candlepage</div>
+    <div class="lang" role="group" aria-label="שפה">
+      <a class="langlink" href="../" hreflang="en" lang="en">EN</a>
+      <span class="langcur" aria-current="page">עברית</span>
+    </div>
+  </header>
+
+  <main>
+    <div class="hero">
+      <p class="eyebrow">מצב כהה ל-PDF בכרום</p>
+      <h1>PDF כהה. התמונות נשארות בצבעים שלהן.</h1>
+      <p class="lede"
+        >רוב הכלים למצב כהה הופכים כל פיקסל, ולכן תמונות ותרשימים נראים כמו נגטיב. Candlepage מחשיך את הדף ומשאיר את התמונות כמו שהן, כדי שתוכלו ללמוד בשתיים בלילה בלי לכווץ את העיניים.</p>
+      <div class="cta">
+        <a class="btn" href="https://chromewebstore.google.com/detail/candlepage-pdf-dark-mode/dppgdlndkhpjjljmjlllmpefibbihilb">הוספה ל-Chrome</a>
+        <a class="btn ghost" href="https://ko-fi.com/benm">תמיכה בפרויקט</a>
+      </div>
+
+      <figure class="shot hero-shot">
+        <video id="promo" autoplay muted loop controls playsinline preload="auto" poster="../img/poster-he.webp" src="../img/promo-he.mp4" width="1280" height="720" style="display:block;width:100%;height:auto;border-radius:12px;border:1px solid var(--line)"></video>
+      </figure>
+      <div class="shots">
+        <figure class="shot">
+          <img class="loc" loading="lazy" src="../img/1-before-after-he.webp" width="1280" height="800" alt="ה-PDF המקורי לצד אותו עמוד במצב כהה של Candlepage, כשהתמונות נשארות בצבעים המקוריים">
+          <figcaption>לא נגטיב: התמונות נשארות בצבע</figcaption>
+        </figure>
+        <figure class="shot">
+          <img class="loc" loading="lazy" src="../img/2-reading-he.webp" width="1280" height="800" alt="מאמר עם תרשים צבעוני במצב כהה של Candlepage">
+          <figcaption>נעים לעיניים, טקסט חד</figcaption>
+        </figure>
+        <figure class="shot">
+          <img class="loc" loading="lazy" src="../img/3-features-he.webp" width="1280" height="800" alt="חלונית הפיצ׳רים וההגדרות של Candlepage">
+          <figcaption>פיצ׳רים והגדרות במקום אחד</figcaption>
+        </figure>
+        <figure class="shot">
+          <img class="loc" loading="lazy" src="../img/4-cover-he.webp" width="1280" height="800" alt="עטיפת מדריך טיולים עם תמונת שקיעה צבעונית במצב כהה">
+          <figcaption>עטיפות ותמונות שומרות על הצבעים</figcaption>
+        </figure>
+      </div>
+    </div>
+
+    <section aria-labelledby="why">
+      <h2 id="why">בנוי לשעות קריאה ארוכות</h2>
+      <div class="grid">
+        <div class="feat"><h3>עובד על כל PDF</h3><p>פותחים PDF מאתר או מהמחשב וקוראים אותו במצב כהה.</p></div>
+        <div class="feat"><h3>תמונות נשארות אמיתיות</h3><p>תמונות, גרפים וכריכות שומרים על הצבעים המקוריים במקום להפוך לנגטיב.</p></div>
+        <div class="feat"><h3>עברית ואנגלית</h3><p>הממשק עובד בשתי השפות, כולל פריסה מימין לשמאל.</p></div>
+        <div class="feat"><h3>נקי ומינימלי</h3><p>מציג פשוט בסגנון iOS שלא מפריע לכם בזמן הקריאה.</p></div>
+      </div>
+    </section>
+
+    <section aria-labelledby="extras">
+      <div class="opt">
+        <h2 id="extras" style="margin-bottom:8px">תוספות, רק כשאתם רוצים</h2>
+        <p style="margin:0;color:var(--muted)">אלה כבויים כברירת מחדל. מפעילים אותם בהגדרות.</p>
+        <ul>
+          <li><span>כלי מתמטיקה</span><span class="tag">ניסיוני</span></li>
+          <li>ספרייה והיסטוריית קריאה</li>
+          <li>Google Drive</li>
+        </ul>
+      </div>
+    </section>
+
+    <section aria-labelledby="faq">
+      <h2 id="faq" style="margin-bottom:16px">שאלות נפוצות</h2>
+      <div class="grid">
+        <div class="feat"><h3>איך מפעילים מצב כהה על קבצי PDF מהמחשב?</h3><p>כרום חוסם תוספים מקבצים מקומיים כברירת מחדל. פותחים chrome://extensions, מוצאים את Candlepage, לוחצים על פרטים ומפעילים את Allow access to file URLs. מאותו רגע גם קבצי PDF מהמחשב נפתחים במצב כהה.</p></div>
+        <div class="feat"><h3>האם תמונות ותרשימים הופכים לנגטיב?</h3><p>לא. Candlepage מחשיך את הדף ומשאיר תמונות, תרשימים וכריכות בצבעים המקוריים.</p></div>
+        <div class="feat"><h3>האם Candlepage חינמי?</h3><p>כן, זה תוסף חינמי לכרום. אם הוא עוזר לכם, אפשר לתמוך בפרויקט ב-Ko-fi.</p></div>
+        <div class="feat"><h3>מה לגבי הפרטיות שלי?</h3><p>דיווחי תקלות אנונימיים הם אופציונליים ונשלחים רק אם אתם מסכימים. מדיניות הפרטיות למטה מסבירה בדיוק מה נאסף.</p></div>
+      </div>
+    </section>
+
+    <section>
+      <div class="final">
+        <h2 style="margin-bottom:12px">לקרוא בנוחות כבר הלילה</h2>
+        <p>Candlepage הוא פרויקט של אדם אחד. מצאתם באג או יש לכם רעיון? אני קורא כל הודעה.</p>
+        <div class="cta">
+          <a class="btn" href="https://chromewebstore.google.com/detail/candlepage-pdf-dark-mode/dppgdlndkhpjjljmjlllmpefibbihilb">הוספה ל-Chrome</a>
+        </div>
+        <p class="mail"><span>דיווח על באגים:</span> <code dir="ltr">ben.meitav.work@gmail.com</code></p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <a href="https://mrsshh.github.io/pdf-dark-mode-privacy/privacy-policy.html">מדיניות פרטיות</a>
+    <a href="https://ko-fi.com/benm">תמיכה ב-Ko-fi</a>
+    <a href="../" hreflang="en" lang="en">English</a>
+  </footer>
+</div>
+
+
+</body>
+</html>
