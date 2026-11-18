@@ -26,7 +26,7 @@
 <meta name="twitter:title" content="Candlepage: PDF Dark Mode for Chrome – Images Keep Their Colors">
 <meta name="twitter:description" content="Dark PDFs where pictures keep their original colors. Free Chrome extension.">
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Candlepage: PDF Dark Mode","applicationCategory":"BrowserApplication","operatingSystem":"Chrome","description":"Candlepage is a free Chrome extension that turns PDFs dark and keeps images in their original colors. Works on online and local PDFs, in English and Hebrew.","url":"https://mrsshh.github.io/candlepage/","image":"https://mrsshh.github.io/candlepage/img/icon-512.png","downloadUrl":"https://chromewebstore.google.com/detail/candlepage-pdf-dark-mode/dppgdlndkhpjjljmjlllmpefibbihilb","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"inLanguage":["en","he"]}
+{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Candlepage: PDF Dark Mode","applicationCategory":"BrowserApplication","operatingSystem":"Chrome","description":"Read PDFs in true dark mode without ruining photos. Smart images, a PDF finder for web pages, and offline OCR for scanned books. Free, no tracking. English and Hebrew.","url":"https://mrsshh.github.io/candlepage/","image":"https://mrsshh.github.io/candlepage/img/icon-512.png","downloadUrl":"https://chromewebstore.google.com/detail/candlepage-pdf-dark-mode/dppgdlndkhpjjljmjlllmpefibbihilb","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"inLanguage":["en","he"]}
 </script>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Instrument+Sans:wght@400;500;600&family=Heebo:wght@400;500;700&display=swap">
 <style>
@@ -121,6 +121,65 @@ footer a{text-underline-offset:3px}
   .flame{animation:flick 3s ease-in-out infinite}
   @keyframes flick{0%,100%{transform:scaleY(1)}50%{transform:scaleY(1.08) scaleX(.94)}}
 }
+/* Interactive demo */
+.try{background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:clamp(16px,3vw,28px)}
+.tabs{display:inline-flex;gap:4px;background:var(--bg);border:1px solid var(--line);border-radius:999px;padding:3px;margin-bottom:18px}
+.tabs button,.seg button{font:inherit;font-size:14px;border:0;background:transparent;color:var(--muted);padding:7px 16px;border-radius:999px;cursor:pointer}
+.tabs button[aria-selected="true"],.seg button[aria-pressed="true"]{background:var(--amber);color:var(--amber-ink);font-weight:600}
+.vw{border:1px solid var(--line);border-radius:14px;overflow:hidden;background:#1b1b1f;color:#eee}
+.vbar{display:flex;flex-wrap:wrap;align-items:center;gap:10px 16px;padding:10px 14px;background:#24242a;border-bottom:1px solid #000;font-size:14px}
+.vbar .grow{flex:1}
+.vbar .lab{color:#a7a7b2;font-size:13px}
+.seg{display:inline-flex;gap:3px;background:#17171b;border:1px solid #3a3a44;border-radius:999px;padding:3px}
+.seg button{color:#c9c9d2;padding:5px 14px}
+.vbar button.ico{font:inherit;border:1px solid #3a3a44;background:#17171b;color:#eee;border-radius:999px;padding:5px 14px;cursor:pointer}
+.vbar input[type=range]{width:96px;accent-color:var(--amber)}
+.vbody{display:grid;grid-template-columns:minmax(0,1fr);background:#2c2c32;padding:18px;min-height:300px}
+.vbody.has-side{grid-template-columns:200px minmax(0,1fr);gap:14px;padding:0}
+.page{background:#fff;color:#2b2b2b;border-radius:6px;padding:22px 26px;max-width:560px;margin:0 auto;width:100%;font-size:13px;line-height:1.5;transition:background .25s,color .25s,filter .25s;filter:brightness(var(--br,1))}
+.page h4{margin:0 0 6px;font-family:var(--font-display);font-size:20px}
+.page .kick{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#c4392d;margin-bottom:4px}
+.page p{margin:0 0 10px}
+.page small{display:block;color:#777;font-size:11px;margin:4px 0 10px}
+.vw[data-dark="1"] .page{background:#17140f;color:#e9dfcd}
+.vw[data-dark="1"] .page .kick{color:#e8806f}
+.vw[data-dark="1"] .page small{color:#8c8577}
+.photo{position:relative;height:128px;border-radius:6px;overflow:hidden;background:linear-gradient(#e8946a,#c9b08a 48%,#8da0d8)}
+.photo i{position:absolute;left:50%;top:34%;width:52px;height:52px;margin-left:-26px;border-radius:50%;background:radial-gradient(#e6ff6a 30%,rgba(214,255,90,.0) 72%);box-shadow:0 0 34px 12px rgba(212,255,80,.55)}
+.photo svg{position:absolute;left:0;right:0;bottom:0;width:100%;height:46%}
+.app{border:1px solid #d4d4da;border-radius:6px;background:#fff;color:#222;font-size:11px;overflow:hidden}
+.app .tb{background:#eef0f5;padding:4px 8px;border-bottom:1px solid #d9d9df;font-weight:600}
+.app .ab{display:grid;grid-template-columns:70px 1fr}
+.app .sd{background:#f4f6fa;padding:6px 8px;line-height:1.9;color:#555;border-inline-end:1px solid #e4e4ea}
+.app .mn{padding:6px 10px}
+.app .mn div{display:flex;justify-content:space-between;border-bottom:1px solid #eee;padding:2px 0}
+.app .go{display:inline-block;margin-top:8px;background:#1a73e8;color:#fff;padding:3px 10px;border-radius:4px}
+.vw[data-dark="1"][data-pic="off"] .pix{filter:invert(1)}
+.vw[data-dark="1"][data-pic="auto"] .pix.appwin{filter:invert(1) hue-rotate(180deg)}
+.pix{transition:filter .25s}
+.say{margin:16px 0 0;color:var(--muted);min-height:3.2em}
+.say b{color:var(--fg)}
+/* scanned book */
+.side{background:#202026;border-inline-end:1px solid #000;padding:12px;font-size:12.5px;color:#d8d8e0;min-height:300px}
+.side h5{margin:0 0 10px;font-size:13px;font-weight:600;color:#fff}
+.side .none{color:#8d8d99}
+.side ul{list-style:none;margin:0;padding:0}
+.side li{padding:3px 0;opacity:0;transform:translateY(4px);animation:rise .35s forwards}
+.side li.c{padding-inline-start:12px}.side li.s{padding-inline-start:24px;color:#aeaeba}
+@keyframes rise{to{opacity:1;transform:none}}
+.scan{filter:contrast(1.05);font-family:Georgia,serif}
+.scan h4{font-family:Georgia,serif}
+.scan table{width:100%;border-collapse:collapse;font-size:12.5px}
+.scan td{padding:3px 0}.scan td:last-child{text-align:end;font-variant-numeric:tabular-nums}
+.pgn{display:inline-block;min-width:3.6em;text-align:center;background:#17171b;border:1px solid #3a3a44;border-radius:8px;padding:3px 10px}
+.run{display:inline-block;font:inherit;font-weight:600;border:0;border-radius:10px;padding:9px 16px;background:var(--amber);color:var(--amber-ink);cursor:pointer}
+.run[disabled]{opacity:.6;cursor:default}
+.run.sec{background:transparent;color:var(--fg);border:1px solid var(--line);font-weight:500}
+.bar{height:6px;background:#17171b;border-radius:99px;overflow:hidden;margin-top:8px;display:none}
+.bar i{display:block;height:100%;width:0;background:var(--amber);transition:width .4s}
+.toast{display:none;margin-top:8px;font-size:12.5px;color:#c9c9d2}
+.shot.wide{grid-column:1/-1}
+@media (max-width:640px){.vbody.has-side{grid-template-columns:1fr}.side{min-height:0}}
 </style>
 </head>
 <body>
@@ -137,8 +196,8 @@ footer a{text-underline-offset:3px}
     <div class="hero">
       <p class="eyebrow" data-en="PDF dark mode for Chrome" data-he="מצב כהה ל-PDF בכרום">PDF dark mode for Chrome</p>
       <h1 data-en="Dark PDFs. Pictures keep their colors." data-he="PDF כהה. התמונות נשארות בצבעים שלהן.">Dark PDFs. Pictures keep their colors.</h1>
-      <p class="lede" data-en="Most dark mode tools flip every pixel, so photos and diagrams turn into negatives. Candlepage darkens the page and leaves the images alone, so you can read at 2am without squinting."
-         data-he="רוב הכלים למצב כהה הופכים כל פיקסל, ולכן תמונות ותרשימים נראים כמו נגטיב. Candlepage מחשיך את הדף ומשאיר את התמונות כמו שהן, כדי שתוכלו ללמוד בשתיים בלילה בלי לכווץ את העיניים.">Most dark mode tools flip every pixel, so photos and diagrams turn into negatives. Candlepage darkens the page and leaves the images alone, so you can read at 2am without squinting.</p>
+      <p class="lede" data-en="Most dark mode tools flip every pixel, so photos and diagrams turn into negatives. Candlepage darkens the page, keeps your pictures real, finds PDFs on web pages and reads scanned books offline, so you can read at 2am without squinting."
+         data-he="רוב הכלים למצב כהה הופכים כל פיקסל, ולכן תמונות ותרשימים נראים כמו נגטיב. Candlepage מחשיך את הדף, שומר על התמונות אמיתיות, מוצא PDF בדפי אינטרנט וקורא ספרים סרוקים בלי אינטרנט, כדי שתוכלו ללמוד בשתיים בלילה בלי לכווץ את העיניים.">Most dark mode tools flip every pixel, so photos and diagrams turn into negatives. Candlepage darkens the page, keeps your pictures real, finds PDFs on web pages and reads scanned books offline, so you can read at 2am without squinting.</p>
       <div class="cta">
         <a class="btn" href="https://chromewebstore.google.com/detail/candlepage-pdf-dark-mode/dppgdlndkhpjjljmjlllmpefibbihilb" data-en="Add to Chrome" data-he="הוספה ל-Chrome">Add to Chrome</a>
         <a class="btn ghost" href="https://ko-fi.com/benm" data-en="Support the project" data-he="תמיכה בפרויקט">Support the project</a>
@@ -148,41 +207,120 @@ footer a{text-underline-offset:3px}
         <video id="promo" autoplay muted loop controls playsinline preload="auto" poster="img/poster-en.webp" src="img/promo-en.mp4" width="1280" height="720" style="display:block;width:100%;height:auto;border-radius:12px;border:1px solid var(--line)"></video>
       </figure>
       <div class="shots">
-        <figure class="shot">
-          <img class="loc" loading="lazy" data-img="1-before-after" src="img/1-before-after-en.webp" width="1280" height="800" alt="The original PDF next to the same page in Candlepage dark mode, with the pictures in their original colors">
-          <figcaption data-en="Not a negative: pictures keep their colors" data-he="לא נגטיב: התמונות נשארות בצבע">Not a negative: pictures keep their colors</figcaption>
+        <figure class="shot wide">
+          <img class="loc" loading="lazy" data-img="s-1-dark-mode" src="img/s-1-dark-mode-en.webp" width="1280" height="800" alt="The original page next to the same page in Candlepage, with the picture in its real colours" data-alt-en="The original page next to the same page in Candlepage, with the picture in its real colours" data-alt-he="הדף המקורי ליד אותו דף ב-Candlepage, כשהתמונה נשארת בצבעים האמיתיים">
+          <figcaption data-en="True dark mode for every PDF" data-he="מצב כהה אמיתי לכל PDF">True dark mode for every PDF</figcaption>
         </figure>
         <figure class="shot">
-          <img class="loc" loading="lazy" data-img="2-reading" src="img/2-reading-en.webp" width="1280" height="800" alt="An article with a colorful chart in Candlepage dark mode">
-          <figcaption data-en="Easy on the eyes, sharp text" data-he="נעים לעיניים, טקסט חד">Easy on the eyes, sharp text</figcaption>
+          <img class="loc" loading="lazy" data-img="s-2-pictures" src="img/s-2-pictures-en.webp" width="1280" height="800" alt="The picture colours chooser with Off, Auto and All" data-alt-en="The picture colours chooser with Off, Auto and All" data-alt-he="בחירת צבעי תמונות: כבוי, אוטומטי והכול">
+          <figcaption data-en="You decide how pictures look" data-he="אתם מחליטים איך התמונות ייראו">You decide how pictures look</figcaption>
         </figure>
         <figure class="shot">
-          <img class="loc" loading="lazy" data-img="3-features" src="img/3-features-en.webp" width="1280" height="800" alt="The Candlepage features and settings panel">
-          <figcaption data-en="Features and settings in one place" data-he="פיצ׳רים והגדרות במקום אחד">Features and settings in one place</figcaption>
+          <img class="loc" loading="lazy" data-img="s-3-pdf-radar" src="img/s-3-pdf-radar-en.webp" width="1280" height="800" alt="The popup listing the PDFs found on a web page, next to the page with a link highlighted" data-alt-en="The popup listing the PDFs found on a web page, next to the page with a link highlighted" data-alt-he="החלון הקופץ שמציג את קבצי ה-PDF שנמצאו בדף, לצד הדף עם קישור מודגש">
+          <figcaption data-en="Finds every PDF on the page" data-he="מוצא כל PDF שבדף">Finds every PDF on the page</figcaption>
         </figure>
         <figure class="shot">
-          <img class="loc" loading="lazy" data-img="4-cover" src="img/4-cover-en.webp" width="1280" height="800" alt="A travel guide cover with a colorful sunset photo in dark mode">
-          <figcaption data-en="Covers and photos keep their colors" data-he="עטיפות ותמונות שומרות על הצבעים">Covers and photos keep their colors</figcaption>
+          <img class="loc" loading="lazy" data-img="s-4-ocr" src="img/s-4-ocr-en.webp" width="1280" height="800" alt="A scanned book with roman numeral page numbers and a chapter outline built by offline OCR" data-alt-en="A scanned book with roman numeral page numbers and a chapter outline built by offline OCR" data-alt-he="ספר סרוק עם מספרי עמודים רומיים ומבנה פרקים שנבנה ב-OCR מקומי">
+          <figcaption data-en="Scanned books, real page numbers" data-he="ספרים סרוקים, מספרי עמודים אמיתיים">Scanned books, real page numbers</figcaption>
+        </figure>
+        <figure class="shot">
+          <img class="loc" loading="lazy" data-img="s-5-right-click" src="img/s-5-right-click-en.webp" width="1280" height="800" alt="The right-click menu with picture colour buttons, and the resizable save-image frame" data-alt-en="The right-click menu with picture colour buttons, and the resizable save-image frame" data-alt-he="תפריט הקליק הימני עם כפתורי צבעי תמונות, ומסגרת שמירת תמונה שאפשר לשנות">
+          <figcaption data-en="Right-click superpowers" data-he="קליק ימני עם כוחות-על">Right-click superpowers</figcaption>
         </figure>
       </div>
     </div>
 
+    <section aria-labelledby="tryit">
+      <h2 id="tryit" data-en="Try it right here" data-he="נסו את זה כאן">Try it right here</h2>
+      <div class="try">
+        <div class="tabs" role="tablist">
+          <button role="tab" id="t-pic" aria-selected="true" aria-controls="p-pic" data-en="Pictures" data-he="תמונות">Pictures</button>
+          <button role="tab" id="t-scan" aria-selected="false" aria-controls="p-scan" data-en="Scanned book" data-he="ספר סרוק">Scanned book</button>
+        </div>
+
+        <div id="p-pic" role="tabpanel" aria-labelledby="t-pic">
+          <div class="vw" id="vw" data-dark="1" data-pic="auto">
+            <div class="vbar">
+              <span class="lab" data-en="Pictures" data-he="תמונות">Pictures</span>
+              <div class="seg" role="group" aria-label="Pictures">
+                <button type="button" data-p="off" aria-pressed="false" data-en="Off" data-he="כבוי">Off</button>
+                <button type="button" data-p="auto" aria-pressed="true" data-en="Auto ✨" data-he="אוטומטי ✨">Auto ✨</button>
+                <button type="button" data-p="all" aria-pressed="false" data-en="All" data-he="הכול">All</button>
+              </div>
+              <span class="grow"></span>
+              <label class="lab"><span data-en="Brightness" data-he="בהירות">Brightness</span> <input id="br" type="range" min="70" max="110" value="100" aria-label="Brightness"></label>
+              <button class="ico" id="mode" type="button" aria-pressed="true" data-en="🌙 Dark" data-he="🌙 כהה">🌙 Dark</button>
+            </div>
+            <div class="vbody">
+              <div class="page" id="pg">
+                <div class="kick" data-en="Study guide · Chapter 3" data-he="מדריך לימוד · פרק 3">Study guide · Chapter 3</div>
+                <h4 data-en="Reading at Night" data-he="קריאה בלילה">Reading at Night</h4>
+                <p data-en="Long evenings with papers and textbooks are easier on the eyes when the page goes dark and the pictures stay true." data-he="ערבים ארוכים עם מאמרים וספרי לימוד נעימים יותר לעיניים כשהדף כהה והתמונות נשארות נאמנות למקור.">Long evenings with papers and textbooks are easier on the eyes when the page goes dark and the pictures stay true.</p>
+                <div class="photo pix"><i></i><svg viewBox="0 0 400 60" preserveAspectRatio="none" aria-hidden="true"><path d="M0 34 C40 10 80 56 130 30 S210 8 260 34 S350 52 400 26 V60 H0Z" fill="#14283d"/></svg></div>
+                <small data-en="Figure 1. A photo keeps its colours." data-he="איור 1. תמונה שומרת על הצבעים שלה.">Figure 1. A photo keeps its colours.</small>
+                <div class="app pix appwin" aria-hidden="true">
+                  <div class="tb">Budget Planner</div>
+                  <div class="ab"><div class="sd">Overview<br>Expenses<br>Savings</div>
+                  <div class="mn"><b data-en="Monthly expenses" data-he="הוצאות חודשיות">Monthly expenses</b><div><span>Rent</span><span>1,200</span></div><div><span>Groceries</span><span>430</span></div><div><span>Books</span><span>85</span></div><span class="go">Save report</span></div></div>
+                </div>
+                <small data-en="Figure 2. A light program window." data-he="איור 2. חלון של תוכנה בהירה.">Figure 2. A light program window.</small>
+              </div>
+            </div>
+          </div>
+          <p class="say" id="say" aria-live="polite"></p>
+        </div>
+
+        <div id="p-scan" role="tabpanel" aria-labelledby="t-scan" hidden>
+          <div class="vw" data-dark="1">
+            <div class="vbar">
+              <span class="pgn" id="pgn" dir="ltr">3 of 30</span>
+              <span class="grow"></span>
+              <button class="run" id="ocr" type="button" data-en="Read page numbers and chapters (OCR)" data-he="קריאת מספרי עמודים ופרקים (OCR)">Read page numbers and chapters (OCR)</button>
+            </div>
+            <div class="vbody has-side" id="sb">
+              <div class="side"><h5 data-en="Document outline" data-he="מבנה המסמך">Document outline</h5><div class="none" id="none" data-en="This scan has no chapters yet." data-he="לסריקה הזו אין עדיין פרקים.">This scan has no chapters yet.</div><ul id="tree"></ul></div>
+              <div style="padding:18px;background:#2c2c32">
+                <div class="page scan" style="background:#17140f;color:#e9dfcd">
+                  <h4>Contents</h4>
+                  <table dir="ltr">
+                    <tr><td><b>PART 1: THE BASICS</b></td><td><b>1</b></td></tr>
+                    <tr><td><b>Chapter 1</b> Reading in the Dark</td><td>1</td></tr>
+                    <tr><td>&nbsp;&nbsp;Why bright pages tire the eyes</td><td>2</td></tr>
+                    <tr><td>&nbsp;&nbsp;A short history of night reading</td><td>6</td></tr>
+                    <tr><td><b>Chapter 2</b> Pictures That Keep Their Colour</td><td>9</td></tr>
+                    <tr><td>&nbsp;&nbsp;Photos and negatives</td><td>10</td></tr>
+                    <tr><td>&nbsp;&nbsp;Screenshots and diagrams</td><td>14</td></tr>
+                  </table>
+                </div>
+                <div class="bar" id="bar"><i></i></div><div class="toast" id="toast"></div>
+              </div>
+            </div>
+          </div>
+          <p class="say" id="say2" data-en="A scan is just pictures of pages, so the viewer doesn't know the real page numbers or chapters. Candlepage reads them on your computer. Nothing is uploaded." data-he="סריקה היא רק תמונות של עמודים, ולכן הקורא לא יודע מה מספרי העמודים והפרקים האמיתיים. Candlepage קורא אותם במחשב שלכם. שום דבר לא מועלה לשום מקום.">A scan is just pictures of pages, so the viewer doesn't know the real page numbers or chapters. Candlepage reads them on your computer. Nothing is uploaded.</p>
+          <button class="run sec" id="reset" type="button" hidden data-en="Start over" data-he="להתחיל מחדש">Start over</button>
+        </div>
+      </div>
+    </section>
+
     <section aria-labelledby="why">
       <h2 id="why" data-en="Built for long reading sessions" data-he="בנוי לשעות קריאה ארוכות">Built for long reading sessions</h2>
       <div class="grid">
-        <div class="feat"><h3 data-en="Works on any PDF" data-he="עובד על כל PDF">Works on any PDF</h3><p data-en="Open a PDF from a website or from your computer and read it in dark mode." data-he="פותחים PDF מאתר או מהמחשב וקוראים אותו במצב כהה.">Open a PDF from a website or from your computer and read it in dark mode.</p></div>
-        <div class="feat"><h3 data-en="Images stay true" data-he="תמונות נשארות אמיתיות">Images stay true</h3><p data-en="Photos, charts and book covers keep their original colors instead of turning into negatives." data-he="תמונות, גרפים וכריכות שומרים על הצבעים המקוריים במקום להפוך לנגטיב.">Photos, charts and book covers keep their original colors instead of turning into negatives.</p></div>
+        <div class="feat"><h3 data-en="Pictures stay true" data-he="תמונות נשארות אמיתיות">Pictures stay true</h3><p data-en="Photos, charts and book covers keep their original colors. Choose Off, Auto or All, and see a live preview on your own PDF." data-he="תמונות, גרפים וכריכות שומרים על הצבעים המקוריים. בוחרים כבוי, אוטומטי או הכול, ורואים תצוגה חיה על ה-PDF שלכם.">Photos, charts and book covers keep their original colors. Choose Off, Auto or All, and see a live preview on your own PDF.</p></div>
+        <div class="feat"><h3 data-en="Auto mode for screenshots" data-he="מצב אוטומטי לצילומי מסך">Auto mode for screenshots</h3><p data-en="A light app window in your PDF becomes a dark one, like its own dark mode, while real photos stay untouched." data-he="חלון של תוכנה בהירה בתוך ה-PDF הופך לכהה, כמו מצב כהה שלה, ותמונות אמיתיות נשארות כמו שהן.">A light app window in your PDF becomes a dark one, like its own dark mode, while real photos stay untouched.</p></div>
+        <div class="feat"><h3 data-en="Finds PDFs on any page" data-he="מוצא PDF בכל דף">Finds PDFs on any page</h3><p data-en="Open the popup on a web page and see every PDF link. Open one in dark mode, or jump to it on the page." data-he="פותחים את החלון הקופץ בדף אינטרנט ורואים כל קישור ל-PDF. פותחים אחד במצב כהה, או קופצים אליו בדף.">Open the popup on a web page and see every PDF link. Open one in dark mode, or jump to it on the page.</p></div>
+        <div class="feat"><h3 data-en="Offline OCR for scanned books" data-he="OCR מקומי לספרים סרוקים">Offline OCR for scanned books</h3><p data-en="Reads real page numbers (even i, ii, iii) and builds chapters from the contents page. It runs on your computer and nothing is uploaded." data-he="קורא מספרי עמודים אמיתיים (גם i, ii, iii) ובונה פרקים מתוך תוכן העניינים. הכול רץ במחשב שלכם ושום דבר לא מועלה.">Reads real page numbers (even i, ii, iii) and builds chapters from the contents page. It runs on your computer and nothing is uploaded.</p></div>
+        <div class="feat"><h3 data-en="Save any picture" data-he="שמירת כל תמונה">Save any picture</h3><p data-en="Right-click a picture, drag a frame over the whole image (even when the PDF splits it) and save it dark or as printed." data-he="קליק ימני על תמונה, גוררים מסגרת על התמונה כולה (גם אם ה-PDF פיצל אותה) ושומרים כהה או כמו במקור.">Right-click a picture, drag a frame over the whole image (even when the PDF splits it) and save it dark or as printed.</p></div>
         <div class="feat"><h3 data-en="Hebrew and English" data-he="עברית ואנגלית">Hebrew and English</h3><p data-en="The interface works in both languages, including right-to-left layout." data-he="הממשק עובד בשתי השפות, כולל פריסה מימין לשמאל.">The interface works in both languages, including right-to-left layout.</p></div>
-        <div class="feat"><h3 data-en="Clean and minimal" data-he="נקי ומינימלי">Clean and minimal</h3><p data-en="A simple, iOS-style viewer that stays out of the way while you read." data-he="מציג פשוט בסגנון iOS שלא מפריע לכם בזמן הקריאה.">A simple, iOS-style viewer that stays out of the way while you read.</p></div>
       </div>
     </section>
 
     <section aria-labelledby="extras">
       <div class="opt">
         <h2 id="extras" style="margin-bottom:8px" data-en="Extras, only when you want them" data-he="תוספות, רק כשאתם רוצים">Extras, only when you want them</h2>
-        <p style="margin:0;color:var(--muted)" data-en="These are off by default. Turn them on in settings." data-he="אלה כבויים כברירת מחדל. מפעילים אותם בהגדרות.">These are off by default. Turn them on in settings.</p>
+        <p style="margin:0;color:var(--muted)" data-en="Optional features. Turn them on or off in settings." data-he="תכונות אופציונליות. מפעילים או מכבים בהגדרות.">Optional features. Turn them on or off in settings.</p>
         <ul>
           <li><span data-en="Math tools" data-he="כלי מתמטיקה">Math tools</span><span class="tag" data-en="Experimental" data-he="ניסיוני">Experimental</span></li>
+          <li data-en="Offline OCR for scanned books (asks first, per book)" data-he="OCR מקומי לספרים סרוקים (שואל קודם, בכל ספר)">Offline OCR for scanned books (asks first, per book)</li>
           <li data-en="Library and reading history" data-he="ספרייה והיסטוריית קריאה">Library and reading history</li>
           <li data-en="Google Drive" data-he="Google Drive">Google Drive</li>
         </ul>
@@ -230,7 +368,8 @@ footer a{text-underline-offset:3px}
     var c=document.querySelector('.compare'); if(c) c.setAttribute('aria-label',c.getAttribute('data-'+lang+'-label'));
     var v=document.getElementById('promo');
     if(v&&v.getAttribute('src')!=='img/promo-'+lang+'.mp4'){v.pause();v.poster='img/poster-'+lang+'.webp';v.src='img/promo-'+lang+'.mp4'}
-    document.querySelectorAll('img.loc').forEach(function(im){im.src='img/'+im.getAttribute('data-img')+'-'+lang+'.webp'});
+    document.querySelectorAll('img.loc').forEach(function(im){im.src='img/'+im.getAttribute('data-img')+'-'+lang+'.webp';var a=im.getAttribute('data-alt-'+lang);if(a)im.alt=a});
+    if(window.cpDemo)window.cpDemo(lang);
     bEn.setAttribute('aria-pressed',lang==='en'); bHe.setAttribute('aria-pressed',lang==='he');
     try{localStorage.setItem('cp-lang',lang)}catch(e){}
   }
@@ -238,6 +377,51 @@ footer a{text-underline-offset:3px}
   bHe.addEventListener('click',function(){set('he')});
   var saved=null; try{saved=localStorage.getItem('cp-lang')}catch(e){}
   if(saved==='he'||(!saved&&(navigator.language||'').toLowerCase().indexOf('he')===0)) set('he');
+})();
+</script>
+
+<script>
+(function(){
+  var lang=function(){return document.documentElement.lang==='he'?'he':'en'};
+  var vw=document.getElementById('vw'), say=document.getElementById('say');
+  var MSG={
+    off:{en:'<b>Off.</b> Every picture goes dark with the page, so photos look like negatives. This is what most dark mode tools do.',he:'<b>כבוי.</b> כל תמונה מתהפכת יחד עם הדף, ולכן תמונות נראות כמו נגטיב. כך עובדים רוב הכלים למצב כהה.'},
+    auto:{en:'<b>Auto.</b> The photo keeps its colours, and the light program window turns dark like its own dark mode.',he:'<b>אוטומטי.</b> התמונה שומרת על הצבעים, וחלון התוכנה הבהיר הופך לכהה כמו מצב כהה שלו.'},
+    all:{en:'<b>All.</b> Every picture stays exactly as printed, in full colour. The safe choice.',he:'<b>הכול.</b> כל תמונה נשארת בדיוק כמו בדפוס, בצבע מלא. הבחירה הבטוחה.'},
+    light:{en:'<b>Light mode.</b> The page is shown as printed. Switch back to dark to see the pictures modes.',he:'<b>מצב בהיר.</b> הדף מוצג כמו במקור. חזרו למצב כהה כדי לראות את מצבי התמונות.'}};
+  function draw(){
+    var l=lang(), dark=vw.getAttribute('data-dark')==='1';
+    say.innerHTML=MSG[dark?vw.getAttribute('data-pic'):'light'][l];
+    var m=document.getElementById('mode'); m.textContent=dark?(l==='he'?'🌙 כהה':'🌙 Dark'):(l==='he'?'☀️ בהיר':'☀️ Light'); m.setAttribute('aria-pressed',dark);
+  }
+  document.querySelectorAll('.seg button').forEach(function(b){b.addEventListener('click',function(){
+    vw.setAttribute('data-pic',b.getAttribute('data-p'));
+    document.querySelectorAll('.seg button').forEach(function(x){x.setAttribute('aria-pressed',x===b)});
+    vw.setAttribute('data-dark','1'); draw();});});
+  document.getElementById('mode').addEventListener('click',function(){vw.setAttribute('data-dark',vw.getAttribute('data-dark')==='1'?'0':'1');draw()});
+  document.getElementById('br').addEventListener('input',function(e){document.getElementById('pg').style.setProperty('--br',e.target.value/100)});
+  // tabs
+  var tp=document.getElementById('t-pic'), ts=document.getElementById('t-scan'), pp=document.getElementById('p-pic'), ps=document.getElementById('p-scan');
+  function tab(scan){tp.setAttribute('aria-selected',!scan);ts.setAttribute('aria-selected',scan);pp.hidden=scan;ps.hidden=!scan}
+  tp.addEventListener('click',function(){tab(false)}); ts.addEventListener('click',function(){tab(true)});
+  // scanned book demo
+  var TREE=[['Part 1 · The Basics',''],['Chapter 1 · Reading in the Dark','',1],['Why bright pages tire the eyes','',2],['A short history of night reading','',2],['Chapter 2 · Pictures That Keep Their Colour','',1],['Photos and negatives','',2],['Screenshots and diagrams','',2]];
+  var btn=document.getElementById('ocr'), bar=document.getElementById('bar'), toast=document.getElementById('toast'), tree=document.getElementById('tree'), none=document.getElementById('none'), pgn=document.getElementById('pgn'), reset=document.getElementById('reset');
+  var timers=[]; btn._t=btn.textContent;
+  function stop(){timers.forEach(clearTimeout);timers=[]}
+  function later(f,ms){timers.push(setTimeout(f,ms))}
+  btn.addEventListener('click',function(){
+    var l=lang(); btn.disabled=true; bar.style.display='block'; toast.style.display='block'; bar.firstChild.style.width='0';
+    var steps=5; for(let i=1;i<=steps;i++){later(function(){toast.textContent=(lang()==='he'?'קורא את הספר הסרוק במחשב… ':'Reading the scanned book on this computer… ')+i+' / '+steps;bar.firstChild.style.width=(i/steps*100)+'%'},i*450)}
+    later(function(){
+      bar.style.display='none'; toast.style.display='none'; none.style.display='none'; tree.innerHTML='';
+      TREE.forEach(function(t,i){var li=document.createElement('li'); li.className=t[2]===1?'c':t[2]===2?'s':''; li.textContent=t[0]; li.style.animationDelay=(i*90)+'ms'; tree.appendChild(li)});
+      pgn.textContent='iii (3 of 30)'; reset.hidden=false; btn.textContent=lang()==='he'?'נקרא ✓':'Done ✓';
+    },steps*450+500);
+  });
+  reset.addEventListener('click',function(){stop();tree.innerHTML='';none.style.display='';pgn.textContent='3 of 30';btn.disabled=false;btn.textContent=btn.getAttribute('data-'+lang())||btn._t;reset.hidden=true;bar.style.display='none';toast.style.display='none'});
+  window.cpDemo=function(){draw(); if(btn.disabled&&!reset.hidden)btn.textContent=lang()==='he'?'נקרא ✓':'Done ✓'};
+  draw();
 })();
 </script>
 

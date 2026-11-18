@@ -124,6 +124,65 @@ footer a{text-underline-offset:3px}
   .flame{animation:flick 3s ease-in-out infinite}
   @keyframes flick{0%,100%{transform:scaleY(1)}50%{transform:scaleY(1.08) scaleX(.94)}}
 }
+/* Interactive demo */
+.try{background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:clamp(16px,3vw,28px)}
+.tabs{display:inline-flex;gap:4px;background:var(--bg);border:1px solid var(--line);border-radius:999px;padding:3px;margin-bottom:18px}
+.tabs button,.seg button{font:inherit;font-size:14px;border:0;background:transparent;color:var(--muted);padding:7px 16px;border-radius:999px;cursor:pointer}
+.tabs button[aria-selected="true"],.seg button[aria-pressed="true"]{background:var(--amber);color:var(--amber-ink);font-weight:600}
+.vw{border:1px solid var(--line);border-radius:14px;overflow:hidden;background:#1b1b1f;color:#eee}
+.vbar{display:flex;flex-wrap:wrap;align-items:center;gap:10px 16px;padding:10px 14px;background:#24242a;border-bottom:1px solid #000;font-size:14px}
+.vbar .grow{flex:1}
+.vbar .lab{color:#a7a7b2;font-size:13px}
+.seg{display:inline-flex;gap:3px;background:#17171b;border:1px solid #3a3a44;border-radius:999px;padding:3px}
+.seg button{color:#c9c9d2;padding:5px 14px}
+.vbar button.ico{font:inherit;border:1px solid #3a3a44;background:#17171b;color:#eee;border-radius:999px;padding:5px 14px;cursor:pointer}
+.vbar input[type=range]{width:96px;accent-color:var(--amber)}
+.vbody{display:grid;grid-template-columns:minmax(0,1fr);background:#2c2c32;padding:18px;min-height:300px}
+.vbody.has-side{grid-template-columns:200px minmax(0,1fr);gap:14px;padding:0}
+.page{background:#fff;color:#2b2b2b;border-radius:6px;padding:22px 26px;max-width:560px;margin:0 auto;width:100%;font-size:13px;line-height:1.5;transition:background .25s,color .25s,filter .25s;filter:brightness(var(--br,1))}
+.page h4{margin:0 0 6px;font-family:var(--font-display);font-size:20px}
+.page .kick{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#c4392d;margin-bottom:4px}
+.page p{margin:0 0 10px}
+.page small{display:block;color:#777;font-size:11px;margin:4px 0 10px}
+.vw[data-dark="1"] .page{background:#17140f;color:#e9dfcd}
+.vw[data-dark="1"] .page .kick{color:#e8806f}
+.vw[data-dark="1"] .page small{color:#8c8577}
+.photo{position:relative;height:128px;border-radius:6px;overflow:hidden;background:linear-gradient(#e8946a,#c9b08a 48%,#8da0d8)}
+.photo i{position:absolute;left:50%;top:34%;width:52px;height:52px;margin-left:-26px;border-radius:50%;background:radial-gradient(#e6ff6a 30%,rgba(214,255,90,.0) 72%);box-shadow:0 0 34px 12px rgba(212,255,80,.55)}
+.photo svg{position:absolute;left:0;right:0;bottom:0;width:100%;height:46%}
+.app{border:1px solid #d4d4da;border-radius:6px;background:#fff;color:#222;font-size:11px;overflow:hidden}
+.app .tb{background:#eef0f5;padding:4px 8px;border-bottom:1px solid #d9d9df;font-weight:600}
+.app .ab{display:grid;grid-template-columns:70px 1fr}
+.app .sd{background:#f4f6fa;padding:6px 8px;line-height:1.9;color:#555;border-inline-end:1px solid #e4e4ea}
+.app .mn{padding:6px 10px}
+.app .mn div{display:flex;justify-content:space-between;border-bottom:1px solid #eee;padding:2px 0}
+.app .go{display:inline-block;margin-top:8px;background:#1a73e8;color:#fff;padding:3px 10px;border-radius:4px}
+.vw[data-dark="1"][data-pic="off"] .pix{filter:invert(1)}
+.vw[data-dark="1"][data-pic="auto"] .pix.appwin{filter:invert(1) hue-rotate(180deg)}
+.pix{transition:filter .25s}
+.say{margin:16px 0 0;color:var(--muted);min-height:3.2em}
+.say b{color:var(--fg)}
+/* scanned book */
+.side{background:#202026;border-inline-end:1px solid #000;padding:12px;font-size:12.5px;color:#d8d8e0;min-height:300px}
+.side h5{margin:0 0 10px;font-size:13px;font-weight:600;color:#fff}
+.side .none{color:#8d8d99}
+.side ul{list-style:none;margin:0;padding:0}
+.side li{padding:3px 0;opacity:0;transform:translateY(4px);animation:rise .35s forwards}
+.side li.c{padding-inline-start:12px}.side li.s{padding-inline-start:24px;color:#aeaeba}
+@keyframes rise{to{opacity:1;transform:none}}
+.scan{filter:contrast(1.05);font-family:Georgia,serif}
+.scan h4{font-family:Georgia,serif}
+.scan table{width:100%;border-collapse:collapse;font-size:12.5px}
+.scan td{padding:3px 0}.scan td:last-child{text-align:end;font-variant-numeric:tabular-nums}
+.pgn{display:inline-block;min-width:3.6em;text-align:center;background:#17171b;border:1px solid #3a3a44;border-radius:8px;padding:3px 10px}
+.run{display:inline-block;font:inherit;font-weight:600;border:0;border-radius:10px;padding:9px 16px;background:var(--amber);color:var(--amber-ink);cursor:pointer}
+.run[disabled]{opacity:.6;cursor:default}
+.run.sec{background:transparent;color:var(--fg);border:1px solid var(--line);font-weight:500}
+.bar{height:6px;background:#17171b;border-radius:99px;overflow:hidden;margin-top:8px;display:none}
+.bar i{display:block;height:100%;width:0;background:var(--amber);transition:width .4s}
+.toast{display:none;margin-top:8px;font-size:12.5px;color:#c9c9d2}
+.shot.wide{grid-column:1/-1}
+@media (max-width:640px){.vbody.has-side{grid-template-columns:1fr}.side{min-height:0}}
 </style>
 </head>
 <body>
@@ -141,7 +200,7 @@ footer a{text-underline-offset:3px}
       <p class="eyebrow">מצב כהה ל-PDF בכרום</p>
       <h1>PDF כהה. התמונות נשארות בצבעים שלהן.</h1>
       <p class="lede"
-        >רוב הכלים למצב כהה הופכים כל פיקסל, ולכן תמונות ותרשימים נראים כמו נגטיב. Candlepage מחשיך את הדף ומשאיר את התמונות כמו שהן, כדי שתוכלו ללמוד בשתיים בלילה בלי לכווץ את העיניים.</p>
+        >רוב הכלים למצב כהה הופכים כל פיקסל, ולכן תמונות ותרשימים נראים כמו נגטיב. Candlepage מחשיך את הדף, שומר על התמונות אמיתיות, מוצא PDF בדפי אינטרנט וקורא ספרים סרוקים בלי אינטרנט, כדי שתוכלו ללמוד בשתיים בלילה בלי לכווץ את העיניים.</p>
       <div class="cta">
         <a class="btn" href="https://chromewebstore.google.com/detail/candlepage-pdf-dark-mode/dppgdlndkhpjjljmjlllmpefibbihilb">הוספה ל-Chrome</a>
         <a class="btn ghost" href="https://ko-fi.com/benm">תמיכה בפרויקט</a>
@@ -151,41 +210,120 @@ footer a{text-underline-offset:3px}
         <video id="promo" autoplay muted loop controls playsinline preload="auto" poster="../img/poster-he.webp" src="../img/promo-he.mp4" width="1280" height="720" style="display:block;width:100%;height:auto;border-radius:12px;border:1px solid var(--line)"></video>
       </figure>
       <div class="shots">
-        <figure class="shot">
-          <img class="loc" loading="lazy" src="../img/1-before-after-he.webp" width="1280" height="800" alt="ה-PDF המקורי לצד אותו עמוד במצב כהה של Candlepage, כשהתמונות נשארות בצבעים המקוריים">
-          <figcaption>לא נגטיב: התמונות נשארות בצבע</figcaption>
+        <figure class="shot wide">
+          <img class="loc" loading="lazy" src="../img/s-1-dark-mode-he.webp" width="1280" height="800" alt="הדף המקורי ליד אותו דף ב-Candlepage, כשהתמונה נשארת בצבעים האמיתיים">
+          <figcaption>מצב כהה אמיתי לכל PDF</figcaption>
         </figure>
         <figure class="shot">
-          <img class="loc" loading="lazy" src="../img/2-reading-he.webp" width="1280" height="800" alt="מאמר עם תרשים צבעוני במצב כהה של Candlepage">
-          <figcaption>נעים לעיניים, טקסט חד</figcaption>
+          <img class="loc" loading="lazy" src="../img/s-2-pictures-he.webp" width="1280" height="800" alt="בחירת צבעי תמונות: כבוי, אוטומטי והכול">
+          <figcaption>אתם מחליטים איך התמונות ייראו</figcaption>
         </figure>
         <figure class="shot">
-          <img class="loc" loading="lazy" src="../img/3-features-he.webp" width="1280" height="800" alt="חלונית הפיצ׳רים וההגדרות של Candlepage">
-          <figcaption>פיצ׳רים והגדרות במקום אחד</figcaption>
+          <img class="loc" loading="lazy" src="../img/s-3-pdf-radar-he.webp" width="1280" height="800" alt="החלון הקופץ שמציג את קבצי ה-PDF שנמצאו בדף, לצד הדף עם קישור מודגש">
+          <figcaption>מוצא כל PDF שבדף</figcaption>
         </figure>
         <figure class="shot">
-          <img class="loc" loading="lazy" src="../img/4-cover-he.webp" width="1280" height="800" alt="עטיפת מדריך טיולים עם תמונת שקיעה צבעונית במצב כהה">
-          <figcaption>עטיפות ותמונות שומרות על הצבעים</figcaption>
+          <img class="loc" loading="lazy" src="../img/s-4-ocr-he.webp" width="1280" height="800" alt="ספר סרוק עם מספרי עמודים רומיים ומבנה פרקים שנבנה ב-OCR מקומי">
+          <figcaption>ספרים סרוקים, מספרי עמודים אמיתיים</figcaption>
+        </figure>
+        <figure class="shot">
+          <img class="loc" loading="lazy" src="../img/s-5-right-click-he.webp" width="1280" height="800" alt="תפריט הקליק הימני עם כפתורי צבעי תמונות, ומסגרת שמירת תמונה שאפשר לשנות">
+          <figcaption>קליק ימני עם כוחות-על</figcaption>
         </figure>
       </div>
     </div>
 
+    <section aria-labelledby="tryit">
+      <h2 id="tryit">נסו את זה כאן</h2>
+      <div class="try">
+        <div class="tabs" role="tablist">
+          <button role="tab" id="t-pic" aria-selected="true" aria-controls="p-pic">תמונות</button>
+          <button role="tab" id="t-scan" aria-selected="false" aria-controls="p-scan">ספר סרוק</button>
+        </div>
+
+        <div id="p-pic" role="tabpanel" aria-labelledby="t-pic">
+          <div class="vw" id="vw" data-dark="1" data-pic="auto">
+            <div class="vbar">
+              <span class="lab">תמונות</span>
+              <div class="seg" role="group" aria-label="Pictures">
+                <button type="button" data-p="off" aria-pressed="false">כבוי</button>
+                <button type="button" data-p="auto" aria-pressed="true">אוטומטי ✨</button>
+                <button type="button" data-p="all" aria-pressed="false">הכול</button>
+              </div>
+              <span class="grow"></span>
+              <label class="lab"><span>בהירות</span> <input id="br" type="range" min="70" max="110" value="100" aria-label="Brightness"></label>
+              <button class="ico" id="mode" type="button" aria-pressed="true">🌙 כהה</button>
+            </div>
+            <div class="vbody">
+              <div class="page" id="pg">
+                <div class="kick">מדריך לימוד · פרק 3</div>
+                <h4>קריאה בלילה</h4>
+                <p>ערבים ארוכים עם מאמרים וספרי לימוד נעימים יותר לעיניים כשהדף כהה והתמונות נשארות נאמנות למקור.</p>
+                <div class="photo pix"><i></i><svg viewBox="0 0 400 60" preserveAspectRatio="none" aria-hidden="true"><path d="M0 34 C40 10 80 56 130 30 S210 8 260 34 S350 52 400 26 V60 H0Z" fill="#14283d"/></svg></div>
+                <small>איור 1. תמונה שומרת על הצבעים שלה.</small>
+                <div class="app pix appwin" aria-hidden="true">
+                  <div class="tb">Budget Planner</div>
+                  <div class="ab"><div class="sd">Overview<br>Expenses<br>Savings</div>
+                  <div class="mn"><b>הוצאות חודשיות</b><div><span>Rent</span><span>1,200</span></div><div><span>Groceries</span><span>430</span></div><div><span>Books</span><span>85</span></div><span class="go">Save report</span></div></div>
+                </div>
+                <small>איור 2. חלון של תוכנה בהירה.</small>
+              </div>
+            </div>
+          </div>
+          <p class="say" id="say" aria-live="polite"></p>
+        </div>
+
+        <div id="p-scan" role="tabpanel" aria-labelledby="t-scan" hidden>
+          <div class="vw" data-dark="1">
+            <div class="vbar">
+              <span class="pgn" id="pgn" dir="ltr">3 of 30</span>
+              <span class="grow"></span>
+              <button class="run" id="ocr" type="button">קריאת מספרי עמודים ופרקים (OCR)</button>
+            </div>
+            <div class="vbody has-side" id="sb">
+              <div class="side"><h5>מבנה המסמך</h5><div class="none" id="none">לסריקה הזו אין עדיין פרקים.</div><ul id="tree"></ul></div>
+              <div style="padding:18px;background:#2c2c32">
+                <div class="page scan" style="background:#17140f;color:#e9dfcd">
+                  <h4>Contents</h4>
+                  <table dir="ltr">
+                    <tr><td><b>PART 1: THE BASICS</b></td><td><b>1</b></td></tr>
+                    <tr><td><b>Chapter 1</b> Reading in the Dark</td><td>1</td></tr>
+                    <tr><td>&nbsp;&nbsp;Why bright pages tire the eyes</td><td>2</td></tr>
+                    <tr><td>&nbsp;&nbsp;A short history of night reading</td><td>6</td></tr>
+                    <tr><td><b>Chapter 2</b> Pictures That Keep Their Colour</td><td>9</td></tr>
+                    <tr><td>&nbsp;&nbsp;Photos and negatives</td><td>10</td></tr>
+                    <tr><td>&nbsp;&nbsp;Screenshots and diagrams</td><td>14</td></tr>
+                  </table>
+                </div>
+                <div class="bar" id="bar"><i></i></div><div class="toast" id="toast"></div>
+              </div>
+            </div>
+          </div>
+          <p class="say" id="say2">סריקה היא רק תמונות של עמודים, ולכן הקורא לא יודע מה מספרי העמודים והפרקים האמיתיים. Candlepage קורא אותם במחשב שלכם. שום דבר לא מועלה לשום מקום.</p>
+          <button class="run sec" id="reset" type="button" hidden>להתחיל מחדש</button>
+        </div>
+      </div>
+    </section>
+
     <section aria-labelledby="why">
       <h2 id="why">בנוי לשעות קריאה ארוכות</h2>
       <div class="grid">
-        <div class="feat"><h3>עובד על כל PDF</h3><p>פותחים PDF מאתר או מהמחשב וקוראים אותו במצב כהה.</p></div>
-        <div class="feat"><h3>תמונות נשארות אמיתיות</h3><p>תמונות, גרפים וכריכות שומרים על הצבעים המקוריים במקום להפוך לנגטיב.</p></div>
+        <div class="feat"><h3>תמונות נשארות אמיתיות</h3><p>תמונות, גרפים וכריכות שומרים על הצבעים המקוריים. בוחרים כבוי, אוטומטי או הכול, ורואים תצוגה חיה על ה-PDF שלכם.</p></div>
+        <div class="feat"><h3>מצב אוטומטי לצילומי מסך</h3><p>חלון של תוכנה בהירה בתוך ה-PDF הופך לכהה, כמו מצב כהה שלה, ותמונות אמיתיות נשארות כמו שהן.</p></div>
+        <div class="feat"><h3>מוצא PDF בכל דף</h3><p>פותחים את החלון הקופץ בדף אינטרנט ורואים כל קישור ל-PDF. פותחים אחד במצב כהה, או קופצים אליו בדף.</p></div>
+        <div class="feat"><h3>OCR מקומי לספרים סרוקים</h3><p>קורא מספרי עמודים אמיתיים (גם i, ii, iii) ובונה פרקים מתוך תוכן העניינים. הכול רץ במחשב שלכם ושום דבר לא מועלה.</p></div>
+        <div class="feat"><h3>שמירת כל תמונה</h3><p>קליק ימני על תמונה, גוררים מסגרת על התמונה כולה (גם אם ה-PDF פיצל אותה) ושומרים כהה או כמו במקור.</p></div>
         <div class="feat"><h3>עברית ואנגלית</h3><p>הממשק עובד בשתי השפות, כולל פריסה מימין לשמאל.</p></div>
-        <div class="feat"><h3>נקי ומינימלי</h3><p>מציג פשוט בסגנון iOS שלא מפריע לכם בזמן הקריאה.</p></div>
       </div>
     </section>
 
     <section aria-labelledby="extras">
       <div class="opt">
         <h2 id="extras" style="margin-bottom:8px">תוספות, רק כשאתם רוצים</h2>
-        <p style="margin:0;color:var(--muted)">אלה כבויים כברירת מחדל. מפעילים אותם בהגדרות.</p>
+        <p style="margin:0;color:var(--muted)">תכונות אופציונליות. מפעילים או מכבים בהגדרות.</p>
         <ul>
           <li><span>כלי מתמטיקה</span><span class="tag">ניסיוני</span></li>
+          <li>OCR מקומי לספרים סרוקים (שואל קודם, בכל ספר)</li>
           <li>ספרייה והיסטוריית קריאה</li>
           <li>Google Drive</li>
         </ul>
@@ -221,6 +359,51 @@ footer a{text-underline-offset:3px}
   </footer>
 </div>
 
+
+<script>
+(function(){
+  var lang=function(){return document.documentElement.lang==='he'?'he':'en'};
+  var vw=document.getElementById('vw'), say=document.getElementById('say');
+  var MSG={
+    off:{en:'<b>Off.</b> Every picture goes dark with the page, so photos look like negatives. This is what most dark mode tools do.',he:'<b>כבוי.</b> כל תמונה מתהפכת יחד עם הדף, ולכן תמונות נראות כמו נגטיב. כך עובדים רוב הכלים למצב כהה.'},
+    auto:{en:'<b>Auto.</b> The photo keeps its colours, and the light program window turns dark like its own dark mode.',he:'<b>אוטומטי.</b> התמונה שומרת על הצבעים, וחלון התוכנה הבהיר הופך לכהה כמו מצב כהה שלו.'},
+    all:{en:'<b>All.</b> Every picture stays exactly as printed, in full colour. The safe choice.',he:'<b>הכול.</b> כל תמונה נשארת בדיוק כמו בדפוס, בצבע מלא. הבחירה הבטוחה.'},
+    light:{en:'<b>Light mode.</b> The page is shown as printed. Switch back to dark to see the pictures modes.',he:'<b>מצב בהיר.</b> הדף מוצג כמו במקור. חזרו למצב כהה כדי לראות את מצבי התמונות.'}};
+  function draw(){
+    var l=lang(), dark=vw.getAttribute('data-dark')==='1';
+    say.innerHTML=MSG[dark?vw.getAttribute('data-pic'):'light'][l];
+    var m=document.getElementById('mode'); m.textContent=dark?(l==='he'?'🌙 כהה':'🌙 Dark'):(l==='he'?'☀️ בהיר':'☀️ Light'); m.setAttribute('aria-pressed',dark);
+  }
+  document.querySelectorAll('.seg button').forEach(function(b){b.addEventListener('click',function(){
+    vw.setAttribute('data-pic',b.getAttribute('data-p'));
+    document.querySelectorAll('.seg button').forEach(function(x){x.setAttribute('aria-pressed',x===b)});
+    vw.setAttribute('data-dark','1'); draw();});});
+  document.getElementById('mode').addEventListener('click',function(){vw.setAttribute('data-dark',vw.getAttribute('data-dark')==='1'?'0':'1');draw()});
+  document.getElementById('br').addEventListener('input',function(e){document.getElementById('pg').style.setProperty('--br',e.target.value/100)});
+  // tabs
+  var tp=document.getElementById('t-pic'), ts=document.getElementById('t-scan'), pp=document.getElementById('p-pic'), ps=document.getElementById('p-scan');
+  function tab(scan){tp.setAttribute('aria-selected',!scan);ts.setAttribute('aria-selected',scan);pp.hidden=scan;ps.hidden=!scan}
+  tp.addEventListener('click',function(){tab(false)}); ts.addEventListener('click',function(){tab(true)});
+  // scanned book demo
+  var TREE=[['Part 1 · The Basics',''],['Chapter 1 · Reading in the Dark','',1],['Why bright pages tire the eyes','',2],['A short history of night reading','',2],['Chapter 2 · Pictures That Keep Their Colour','',1],['Photos and negatives','',2],['Screenshots and diagrams','',2]];
+  var btn=document.getElementById('ocr'), bar=document.getElementById('bar'), toast=document.getElementById('toast'), tree=document.getElementById('tree'), none=document.getElementById('none'), pgn=document.getElementById('pgn'), reset=document.getElementById('reset');
+  var timers=[]; btn._t=btn.textContent;
+  function stop(){timers.forEach(clearTimeout);timers=[]}
+  function later(f,ms){timers.push(setTimeout(f,ms))}
+  btn.addEventListener('click',function(){
+    var l=lang(); btn.disabled=true; bar.style.display='block'; toast.style.display='block'; bar.firstChild.style.width='0';
+    var steps=5; for(let i=1;i<=steps;i++){later(function(){toast.textContent=(lang()==='he'?'קורא את הספר הסרוק במחשב… ':'Reading the scanned book on this computer… ')+i+' / '+steps;bar.firstChild.style.width=(i/steps*100)+'%'},i*450)}
+    later(function(){
+      bar.style.display='none'; toast.style.display='none'; none.style.display='none'; tree.innerHTML='';
+      TREE.forEach(function(t,i){var li=document.createElement('li'); li.className=t[2]===1?'c':t[2]===2?'s':''; li.textContent=t[0]; li.style.animationDelay=(i*90)+'ms'; tree.appendChild(li)});
+      pgn.textContent='iii (3 of 30)'; reset.hidden=false; btn.textContent=lang()==='he'?'נקרא ✓':'Done ✓';
+    },steps*450+500);
+  });
+  reset.addEventListener('click',function(){stop();tree.innerHTML='';none.style.display='';pgn.textContent='3 of 30';btn.disabled=false;btn.textContent=btn.getAttribute('data-'+lang())||btn._t;reset.hidden=true;bar.style.display='none';toast.style.display='none'});
+  window.cpDemo=function(){draw(); if(btn.disabled&&!reset.hidden)btn.textContent=lang()==='he'?'נקרא ✓':'Done ✓'};
+  draw();
+})();
+</script>
 
 </body>
 </html>
