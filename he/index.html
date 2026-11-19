@@ -186,6 +186,83 @@ footer a{text-underline-offset:3px}
 .toast{display:none;margin-top:8px;font-size:12.5px;color:#c9c9d2}
 .shot.wide{grid-column:1/-1}
 @media (max-width:640px){.vbody.has-side{grid-template-columns:1fr}.side{min-height:0}}
+
+/* v2: centerpiece demo, math tab, carousel */
+.wrap{max-width:1120px}
+.try{padding:clamp(14px,2.4vw,26px)}
+.tabs{display:flex;flex-wrap:wrap;gap:4px;margin-bottom:18px;width:fit-content;max-width:100%}
+.tabs button{font-size:15px;padding:9px 18px;display:inline-flex;align-items:center;gap:8px}
+.lead{margin:-12px 0 22px;color:var(--muted);max-width:62ch;font-size:17px}
+.page{max-width:680px;font-size:14.5px;padding:28px 32px}
+.page h4{font-size:24px}.photo{height:170px}
+.vbody{min-height:420px;padding:22px}
+.say{font-size:16px}
+/* math */
+.mathbody{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.08fr);gap:18px;align-items:start;padding:22px}
+.mp ul{list-style:none;margin:10px 0 0;padding:0;display:grid;gap:8px}
+.eq{font:inherit;font-size:17px;font-family:Georgia,"Times New Roman",serif;text-align:start;width:100%;background:transparent;color:inherit;border:1px dashed #4a4439;border-radius:8px;padding:8px 12px;cursor:pointer;direction:ltr;unicode-bidi:isolate}
+.eq:hover{border-color:var(--amber)}.eq[aria-pressed="true"]{border-style:solid;border-color:var(--amber);background:rgba(242,167,59,.08)}
+.mp ::selection{background:rgba(242,167,59,.45);color:inherit}
+.mcard{background:#202026;border:1px solid #3a3a44;border-radius:14px;padding:14px;color:#e8e8ee;min-width:0}
+.mhead{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-bottom:12px;font-size:15px}
+.mtabs{display:inline-flex;gap:3px;background:#17171b;border:1px solid #3a3a44;border-radius:999px;padding:3px}
+.mtabs button{font:inherit;font-size:13.5px;border:0;background:transparent;color:#c9c9d2;padding:5px 14px;border-radius:999px;cursor:pointer}
+.mtabs button[aria-pressed="true"]{background:var(--amber);color:var(--amber-ink);font-weight:600}
+.mrow{display:flex;gap:8px}
+.mrow input{flex:1;min-width:0;font:17px Georgia,serif;background:#17171b;color:#fff;border:1px solid #3a3a44;border-radius:10px;padding:10px 12px;direction:ltr}
+.mrow input:focus{outline:2px solid var(--amber);border-color:transparent}
+.mbtn{font:inherit;font-weight:600;border:0;border-radius:10px;padding:0 16px;background:var(--amber);color:var(--amber-ink);cursor:pointer}
+.mres{min-height:76px;margin:12px 0;padding:12px 14px;background:#17171b;border-radius:10px;font-size:15px;direction:ltr;text-align:start}
+html[dir=rtl] .mres{text-align:right}
+.mres .big{font:600 26px/1.2 Georgia,serif;color:#fff;word-break:break-word}
+.mres .sub{color:#a7a7b2;font-size:13.5px;margin-top:4px}
+.mres .err{color:#ff9d8f}
+.mres button{font:inherit;font-size:13px;margin-top:8px;border:1px solid #4a4a56;background:transparent;color:#e8e8ee;border-radius:8px;padding:4px 12px;cursor:pointer}
+.mpad{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;direction:ltr}
+.mpad button{font:17px Georgia,serif;border:1px solid #3a3a44;background:#2a2a32;color:#fff;border-radius:9px;padding:9px 0;cursor:pointer}
+.mpad button:hover{background:#34343e}.mpad .op{background:#3a3326;color:#ffd18a}.mpad .go{background:var(--amber);color:var(--amber-ink);border:0;font-weight:700}
+.mdeg{margin-inline-start:auto;font:inherit;font-size:13px;border:1px solid #4a4a56;background:transparent;color:#e8e8ee;border-radius:999px;padding:4px 12px;cursor:pointer}
+.mcv{display:block;width:100%;height:auto;aspect-ratio:16/10;background:#17140f;border-radius:10px;touch-action:none;cursor:grab}
+.mcv:active{cursor:grabbing}
+.minfo{margin-top:10px;font-size:14px;color:#cfcfd8;direction:ltr;text-align:start;min-height:44px}
+.minfo b{color:#fff}.mhint{color:#8d8d99;font-size:12.5px;margin-top:6px}
+@media (max-width:820px){.mathbody{grid-template-columns:1fr}}
+/* carousel */
+.car{direction:inherit;outline:none}
+.car-stage{position:relative;overflow:hidden;border-radius:18px;border:1px solid var(--line);background:#0f0d0b;box-shadow:0 24px 60px -24px rgba(0,0,0,.55)}
+.car-track{display:flex;transition:transform .55s cubic-bezier(.22,.8,.24,1);will-change:transform;touch-action:pan-y}
+.car-track.drag{transition:none}
+.slide{flex:0 0 100%;margin:0;position:relative}
+.slide img{display:block;width:100%;height:auto;aspect-ratio:8/5;cursor:zoom-in;user-select:none;-webkit-user-drag:none}
+.slide figcaption{position:absolute;inset-inline:0;bottom:0;padding:44px 22px 18px;background:linear-gradient(transparent,rgba(10,8,6,.82));color:#fff;font:600 clamp(16px,2.2vw,22px)/1.25 var(--font-display);pointer-events:none}
+.car-nav,.car-zoom{position:absolute;top:50%;transform:translateY(-50%);width:48px;height:48px;border-radius:50%;border:1px solid rgba(255,255,255,.25);background:rgba(15,13,11,.62);color:#fff;display:grid;place-items:center;cursor:pointer;backdrop-filter:blur(6px);transition:background .2s,transform .2s}
+.car-nav:hover,.car-zoom:hover{background:var(--amber);color:var(--amber-ink)}
+.car-nav.prev{left:14px}.car-nav.next{right:14px}
+html[dir=rtl] .car-nav.prev{left:auto;right:14px}html[dir=rtl] .car-nav.next{right:auto;left:14px}
+html[dir=rtl] .car-nav svg{transform:scaleX(-1)}
+.car-zoom{top:14px;transform:none;width:42px;height:42px;right:14px;left:auto}
+.car-prog{position:absolute;left:0;right:0;top:0;height:3px;background:rgba(255,255,255,.12)}
+.car-prog i{display:block;height:100%;width:0;background:var(--amber)}
+.car-prog.run i{width:100%;transition:width 6.5s linear}
+.car-count{position:absolute;left:16px;top:14px;font-size:13px;color:#fff;background:rgba(15,13,11,.62);padding:4px 11px;border-radius:999px;direction:ltr}
+.car-thumbs{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:12px;margin-top:14px}
+.car-thumbs button{font:inherit;border:2px solid transparent;background:var(--surface);border-radius:12px;padding:0;overflow:hidden;cursor:pointer;color:var(--muted);text-align:start;opacity:.7;transition:opacity .2s,border-color .2s,transform .2s}
+.car-thumbs button:hover{opacity:1;transform:translateY(-2px)}
+.car-thumbs button[aria-selected="true"]{opacity:1;border-color:var(--amber)}
+.car-thumbs img{display:block;width:100%;height:auto;aspect-ratio:8/5}
+.car-thumbs span{display:block;padding:7px 9px 9px;font-size:12.5px;line-height:1.3;color:var(--fg)}
+@media (max-width:720px){.car-thumbs{grid-template-columns:repeat(5,minmax(112px,1fr));overflow-x:auto;padding-bottom:6px}.car-nav{width:40px;height:40px}.car-thumbs span{display:none}}
+@media (max-width:720px){.slide figcaption{display:none}.car-count{top:auto;bottom:10px}.tabs{border-radius:22px}}
+dialog.lb{border:0;padding:0;background:transparent;max-width:100vw;max-height:100vh;width:100vw;height:100vh;color:#fff}
+dialog.lb::backdrop{background:rgba(8,6,4,.92)}
+.lb-in{position:relative;width:100%;height:100%;display:grid;place-items:center;overflow:auto;padding:56px 16px 64px}
+.lb-in img{max-width:min(98vw,2000px);max-height:calc(100vh - 130px);width:auto;height:auto;border-radius:10px;cursor:zoom-in;display:block}
+.lb-in img.full{max-width:none;max-height:none;cursor:zoom-out}
+.lb-cap{position:fixed;inset-inline:0;bottom:16px;text-align:center;font:600 16px var(--font-display);pointer-events:none}
+.lb button{position:fixed;width:46px;height:46px;border-radius:50%;border:1px solid rgba(255,255,255,.3);background:rgba(30,26,22,.8);color:#fff;font-size:22px;cursor:pointer;display:grid;place-items:center}
+.lb button:hover{background:var(--amber);color:var(--amber-ink)}
+.lb .x{top:14px;right:14px}.lb .lp{left:14px;top:50%}.lb .ln{right:14px;top:50%}
+@media (prefers-reduced-motion:reduce){.car-track{transition:none}}
 </style>
 </head>
 <body>
@@ -208,40 +285,16 @@ footer a{text-underline-offset:3px}
         <a class="btn" href="https://chromewebstore.google.com/detail/candlepage-pdf-dark-mode/dppgdlndkhpjjljmjlllmpefibbihilb">הוספה ל-Chrome</a>
         <a class="btn ghost" href="https://ko-fi.com/benm">תמיכה בפרויקט</a>
       </div>
-
-      <figure class="shot hero-shot">
-        <video id="promo" autoplay muted loop controls playsinline preload="auto" poster="../img/poster-he.webp" src="../img/promo-he.mp4" width="1280" height="720" style="display:block;width:100%;height:auto;border-radius:12px;border:1px solid var(--line)"></video>
-      </figure>
-      <div class="shots">
-        <figure class="shot wide">
-          <img class="loc" loading="lazy" src="../img/s-1-dark-mode-he.webp" width="1280" height="800" alt="הדף המקורי ליד אותו דף ב-Candlepage, כשהתמונה נשארת בצבעים האמיתיים">
-          <figcaption>מצב כהה אמיתי לכל PDF</figcaption>
-        </figure>
-        <figure class="shot">
-          <img class="loc" loading="lazy" src="../img/s-2-pictures-he.webp" width="1280" height="800" alt="בחירת צבעי תמונות: כבוי, אוטומטי והכול">
-          <figcaption>אתם מחליטים איך התמונות ייראו</figcaption>
-        </figure>
-        <figure class="shot">
-          <img class="loc" loading="lazy" src="../img/s-3-pdf-radar-he.webp" width="1280" height="800" alt="החלון הקופץ שמציג את קבצי ה-PDF שנמצאו בדף, לצד הדף עם קישור מודגש">
-          <figcaption>מוצא כל PDF שבדף</figcaption>
-        </figure>
-        <figure class="shot">
-          <img class="loc" loading="lazy" src="../img/s-4-ocr-he.webp" width="1280" height="800" alt="ספר סרוק עם מספרי עמודים רומיים ומבנה פרקים שנבנה ב-OCR מקומי">
-          <figcaption>ספרים סרוקים, מספרי עמודים אמיתיים</figcaption>
-        </figure>
-        <figure class="shot">
-          <img class="loc" loading="lazy" src="../img/s-5-right-click-he.webp" width="1280" height="800" alt="תפריט הקליק הימני עם כפתורי צבעי תמונות, ומסגרת שמירת תמונה שאפשר לשנות">
-          <figcaption>קליק ימני עם כוחות-על</figcaption>
-        </figure>
-      </div>
     </div>
 
     <section aria-labelledby="tryit">
       <h2 id="tryit">נסו את זה כאן</h2>
+      <p class="lead">כל מה שמופיע כאן חי. מחליפים מצבי תמונות, קוראים ספר סרוק, פותרים משוואה. זה הדבר האמיתי, לא סרטון.</p>
       <div class="try">
         <div class="tabs" role="tablist">
-          <button role="tab" id="t-pic" aria-selected="true" aria-controls="p-pic">תמונות</button>
-          <button role="tab" id="t-scan" aria-selected="false" aria-controls="p-scan">ספר סרוק</button>
+          <button role="tab" id="t-pic" aria-selected="true" aria-controls="p-pic"><span aria-hidden="true">🖼️</span><span>תמונות</span></button>
+          <button role="tab" id="t-scan" aria-selected="false" aria-controls="p-scan"><span aria-hidden="true">📖</span><span>ספר סרוק</span></button>
+          <button role="tab" id="t-math" aria-selected="false" aria-controls="p-math"><span aria-hidden="true">🧮</span><span>כלי מתמטיקה</span></button>
         </div>
 
         <div id="p-pic" role="tabpanel" aria-labelledby="t-pic">
@@ -305,7 +358,79 @@ footer a{text-underline-offset:3px}
           <p class="say" id="say2">סריקה היא רק תמונות של עמודים, ולכן הקורא לא יודע מה מספרי העמודים והפרקים האמיתיים. Candlepage קורא אותם במחשב שלכם. שום דבר לא מועלה לשום מקום.</p>
           <button class="run sec" id="reset" type="button" hidden>להתחיל מחדש</button>
         </div>
+
+        <div id="p-math" role="tabpanel" aria-labelledby="t-math" hidden>
+          <div class="vw" data-dark="1">
+            <div class="vbar">
+              <span class="lab">סמנו כל משוואה בדף, או לחצו על אחת</span>
+              <span class="grow"></span>
+              <span class="tag" style="margin:0">ניסיוני</span>
+            </div>
+            <div class="vbody mathbody">
+              <div class="page mp" id="mpage" style="background:#17140f;color:#e9dfcd;margin:0;max-width:none">
+                <div class="kick">אלגברה · דף עבודה 4</div>
+                <h4>פתרו את התרגילים</h4>
+                <p>זה דף אמיתי שאפשר לסמן בו טקסט. גררו על שורה, או פשוט לחצו עליה.</p>
+                <ul><li><button type="button" class="eq" aria-pressed="false">2x + 3 = 11</button></li><li><button type="button" class="eq" aria-pressed="false">x² − 5x + 6 = 0</button></li><li><button type="button" class="eq" aria-pressed="false">x + y = 5,  x − y = 1</button></li><li><button type="button" class="eq" aria-pressed="false">f(x) = x² − 4x + 3</button></li><li><button type="button" class="eq" aria-pressed="false">(3/4) + (1/6)</button></li><li><button type="button" class="eq" aria-pressed="false">sin(30°)</button></li></ul>
+              </div>
+              <aside class="mcard" aria-label="Math tools">
+                <div class="mhead"><b>כלי מתמטיקה</b>
+                  <div class="mtabs"><button type="button" id="mt-calc" aria-pressed="true">מחשבון</button><button type="button" id="mt-graph" aria-pressed="false">גרף</button></div></div>
+                <div id="mv-calc">
+                  <div class="mrow"><input id="min" type="text" inputmode="text" autocomplete="off" spellcheck="false" aria-label="Expression" placeholder="2x + 3 = 11"><button type="button" class="mbtn" id="mgo">=</button></div>
+                  <div class="mres" id="mres" aria-live="polite"></div>
+                  <div class="mpad" id="mpad"></div>
+                  <div class="mrow" style="margin-top:10px;align-items:center"><span class="mhint" id="mmem" style="margin:0"></span><button type="button" class="mdeg" id="mdeg">Rad</button></div>
+                </div>
+                <div id="mv-graph" hidden>
+                  <div class="mrow" style="margin-bottom:10px"><input id="gin" type="text" autocomplete="off" spellcheck="false" aria-label="Function" placeholder="x^2 - 4x + 3"><button type="button" class="mbtn" id="ggo">צייר</button></div>
+                  <canvas class="mcv" id="mcv" width="720" height="450" role="img" aria-label="Graph"></canvas>
+                  <div class="minfo" id="minfo"></div>
+                  <div class="mhint">גוררים להזזה, גולילה לזום, לחיצה כפולה לאיפוס.</div>
+                </div>
+              </aside>
+            </div>
+          </div>
+          <p class="say">זה מנוע המתמטיקה האמיתי של Candlepage, והוא רץ כאן בדפדפן שלכם. ב-PDF מסמנים משוואה והוא פותר אותה, מצייר אותה ומוצא שורשים ונקודות קיצון. הכול נשאר במחשב שלכם. התכונה עדיין ניסיונית.</p>
+        </div>
       </div>
+    </section>
+
+    <section aria-labelledby="see">
+      <h2 id="see">רואים אותו בפעולה</h2>
+      <figure class="shot hero-shot" style="margin-top:0">
+        <video id="promo" autoplay muted loop controls playsinline preload="auto" poster="../img/poster-he.webp" src="../img/promo-he.mp4" width="1280" height="720" style="display:block;width:100%;height:auto;border-radius:12px;border:1px solid var(--line)"></video>
+      </figure>
+      <div class="car" id="car" tabindex="0" role="region"  aria-roledescription="carousel" aria-label="צילומי מסך">
+        <div class="car-stage" id="cstage">
+          <div class="car-prog" id="cprog"><i></i></div>
+          <div class="car-track" id="ctrack">
+          <figure class="slide" role="group" aria-roledescription="slide"><img class="loc" src="../img/s-1-dark-mode-he.webp" width="2560" height="1600" alt="הדף המקורי ליד אותו דף ב-Candlepage, כשהתמונה נשארת בצבעים האמיתיים" ><figcaption>מצב כהה אמיתי לכל PDF</figcaption></figure>
+          <figure class="slide" role="group" aria-roledescription="slide"><img class="loc" src="../img/s-2-pictures-he.webp" width="2560" height="1600" alt="בחירת צבעי תמונות: כבוי, אוטומטי והכול" loading="lazy"><figcaption>אתם מחליטים איך התמונות ייראו</figcaption></figure>
+          <figure class="slide" role="group" aria-roledescription="slide"><img class="loc" src="../img/s-3-pdf-radar-he.webp" width="2560" height="1600" alt="החלון הקופץ שמציג את קבצי ה-PDF שנמצאו בדף, לצד הדף עם קישור מודגש" loading="lazy"><figcaption>מוצא כל PDF שבדף</figcaption></figure>
+          <figure class="slide" role="group" aria-roledescription="slide"><img class="loc" src="../img/s-4-ocr-he.webp" width="2560" height="1600" alt="ספר סרוק עם מספרי עמודים רומיים ומבנה פרקים שנבנה ב-OCR מקומי" loading="lazy"><figcaption>ספרים סרוקים, מספרי עמודים אמיתיים</figcaption></figure>
+          <figure class="slide" role="group" aria-roledescription="slide"><img class="loc" src="../img/s-5-right-click-he.webp" width="2560" height="1600" alt="תפריט הקליק הימני עם כפתורי צבעי תמונות, ומסגרת שמירת תמונה שאפשר לשנות" loading="lazy"><figcaption>קליק ימני עם כוחות-על</figcaption></figure>
+          </div>
+          <span class="car-count" id="ccount">1 / 5</span>
+          <button type="button" class="car-zoom" id="czoom" aria-label="הגדלה"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></button>
+          <button type="button" class="car-nav prev" id="cprev" aria-label="הקודם"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg></button>
+          <button type="button" class="car-nav next" id="cnext" aria-label="הבא"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg></button>
+        </div>
+        <div class="car-thumbs" id="cthumbs" role="tablist">
+        <button type="button" role="tab" aria-selected="true" data-i="0"><img class="loc" src="../img/t-1-dark-mode-he.webp" width="520" height="325" alt="" loading="lazy"><span>מצב כהה אמיתי לכל PDF</span></button>
+        <button type="button" role="tab" aria-selected="false" data-i="1"><img class="loc" src="../img/t-2-pictures-he.webp" width="520" height="325" alt="" loading="lazy"><span>אתם מחליטים איך התמונות ייראו</span></button>
+        <button type="button" role="tab" aria-selected="false" data-i="2"><img class="loc" src="../img/t-3-pdf-radar-he.webp" width="520" height="325" alt="" loading="lazy"><span>מוצא כל PDF שבדף</span></button>
+        <button type="button" role="tab" aria-selected="false" data-i="3"><img class="loc" src="../img/t-4-ocr-he.webp" width="520" height="325" alt="" loading="lazy"><span>ספרים סרוקים, מספרי עמודים אמיתיים</span></button>
+        <button type="button" role="tab" aria-selected="false" data-i="4"><img class="loc" src="../img/t-5-right-click-he.webp" width="520" height="325" alt="" loading="lazy"><span>קליק ימני עם כוחות-על</span></button>
+        </div>
+      </div>
+      <dialog class="lb" id="lb" aria-label="Screenshot">
+        <div class="lb-in" id="lbin"><img id="lbimg" alt=""></div>
+        <div class="lb-cap" id="lbcap"></div>
+        <button type="button" class="x" id="lbx" aria-label="Close">✕</button>
+        <button type="button" class="lp" id="lbp" aria-label="Previous">‹</button>
+        <button type="button" class="ln" id="lbn" aria-label="Next">›</button>
+      </dialog>
     </section>
 
     <section aria-labelledby="why">
@@ -365,6 +490,7 @@ footer a{text-underline-offset:3px}
 
 
 <script>
+window.CP_BASE="../";
 (function(){
   var lang=function(){return document.documentElement.lang==='he'?'he':'en'};
   var vw=document.getElementById('vw'), say=document.getElementById('say');
@@ -384,10 +510,6 @@ footer a{text-underline-offset:3px}
     vw.setAttribute('data-dark','1'); draw();});});
   document.getElementById('mode').addEventListener('click',function(){vw.setAttribute('data-dark',vw.getAttribute('data-dark')==='1'?'0':'1');draw()});
   document.getElementById('br').addEventListener('input',function(e){document.getElementById('pg').style.setProperty('--br',e.target.value/100)});
-  // tabs
-  var tp=document.getElementById('t-pic'), ts=document.getElementById('t-scan'), pp=document.getElementById('p-pic'), ps=document.getElementById('p-scan');
-  function tab(scan){tp.setAttribute('aria-selected',!scan);ts.setAttribute('aria-selected',scan);pp.hidden=scan;ps.hidden=!scan}
-  tp.addEventListener('click',function(){tab(false)}); ts.addEventListener('click',function(){tab(true)});
   // scanned book demo
   var TREE=[['Part 1 · The Basics',''],['Chapter 1 · Reading in the Dark','',1],['Why bright pages tire the eyes','',2],['A short history of night reading','',2],['Chapter 2 · Pictures That Keep Their Colour','',1],['Photos and negatives','',2],['Screenshots and diagrams','',2]];
   var btn=document.getElementById('ocr'), bar=document.getElementById('bar'), toast=document.getElementById('toast'), tree=document.getElementById('tree'), none=document.getElementById('none'), pgn=document.getElementById('pgn'), reset=document.getElementById('reset');
@@ -405,6 +527,217 @@ footer a{text-underline-offset:3px}
   });
   reset.addEventListener('click',function(){stop();tree.innerHTML='';none.style.display='';pgn.textContent='3 of 30';btn.disabled=false;btn.textContent=btn.getAttribute('data-'+lang())||btn._t;reset.hidden=true;bar.style.display='none';toast.style.display='none'});
   window.cpDemo=function(){draw(); if(btn.disabled&&!reset.hidden)btn.textContent=lang()==='he'?'נקרא ✓':'Done ✓'};
+  // ===== tabs (generic) =====
+  var TABS=[['t-pic','p-pic'],['t-scan','p-scan'],['t-math','p-math']];
+  function openTab(id){
+    TABS.forEach(function(t){var on=t[0]===id;document.getElementById(t[0]).setAttribute('aria-selected',on);document.getElementById(t[1]).hidden=!on});
+    if(id==='t-math')startMath();
+  }
+  TABS.forEach(function(t){document.getElementById(t[0]).addEventListener('click',function(){openTab(t[0])})});
+  document.querySelector('.tabs').addEventListener('keydown',function(e){
+    var k=e.key; if(k!=='ArrowRight'&&k!=='ArrowLeft')return;
+    var cur=TABS.findIndex(function(t){return document.getElementById(t[0]).getAttribute('aria-selected')==='true'});
+    var step=(k==='ArrowRight')===(document.documentElement.dir!=='rtl')?1:-1;
+    var n=TABS[(cur+step+TABS.length)%TABS.length][0]; openTab(n); document.getElementById(n).focus();
+  });
+
+  // ===== math tools: the real engine from the extension =====
+  var BASE=window.CP_BASE||'';
+  var M=null, calc=null, mathReady=false, lastKind='', lastText='', mathTimer=0;
+  var G={x0:-8,x1:8,y0:-6,y1:6,fns:[]};
+  var $=function(id){return document.getElementById(id)};
+  var T=function(en,he){return lang()==='he'?he:en};
+  function loadMath(cb){
+    if(window.MathCore){cb();return}
+    var s=document.createElement('script'); s.src=BASE+'js/mathcore.min.js'; s.onload=cb; s.onerror=function(){$('mres').textContent=T('Could not load the math engine.','לא ניתן לטעון את מנוע המתמטיקה.')};
+    document.head.appendChild(s);
+  }
+  function buildPad(){
+    var pad=$('mpad'); if(pad.children.length)return;
+    var K=[['C','','op'],['(','('],[')',')'],['⌫','','op'],['7','7'],['8','8'],['9','9'],['÷','/','op'],['4','4'],['5','5'],['6','6'],['×','*','op'],['1','1'],['2','2'],['3','3'],['−','-','op'],['0','0'],['.','.'],['x','x'],['+','+','op'],['^','^','op'],['√','sqrt(','op'],['π','pi','op'],['=','=','go']];
+    K.forEach(function(k){
+      var b=document.createElement('button'); b.type='button'; b.textContent=k[0]; if(k[2])b.className=k[2];
+      b.addEventListener('click',function(){
+        var inp=$('min');
+        if(k[0]==='C')inp.value='';
+        else if(k[0]==='⌫')inp.value=inp.value.slice(0,-1);
+        else if(k[0]==='=')return runCalc();
+        else inp.value+=k[1];
+        inp.focus();
+      });
+      pad.appendChild(b);
+    });
+  }
+  function showRes(html){ $('mres').innerHTML=html }
+  var esc=function(s){return String(s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})};
+  function noteHe(n){ if(lang()!=='he')return n; if(/radians/i.test(n))return 'הזוויות הן ברדיאנים. לחצו Rad/Deg כדי להחליף, או כתבו 30°.'; return n; }
+  function runCalc(){
+    if(!M)return;
+    var raw=$('min').value; if(!raw.trim()){showRes('');return}
+    var cleaned=M.cleanSelection(raw);
+    try{
+      var r=calc.run(cleaned); lastKind=r.kind; lastText=cleaned;
+      var h='<div class="big">'+esc(r.text)+'</div>';
+      if(r.fraction)h+='<div class="sub">= '+esc(r.fraction)+'</div>';
+      if(r.note)h+='<div class="sub">'+esc(noteHe(r.note))+'</div>';
+      if(r.kind==='define')h+='<div class="sub">'+T('Saved. Now try f(3).','נשמר. עכשיו נסו f(3).')+'</div>';
+      if(r.kind==='roots'||r.kind==='define'||r.kind==='system')h+='<button type="button" id="mshow">'+T('Show on graph','הצג בגרף')+'</button>';
+      showRes(h);
+      var sb=$('mshow'); if(sb)sb.addEventListener('click',function(){ $('gin').value=cleaned; setMTab('graph'); plot(false) });
+      var mem=Object.keys(calc.state.fns||{}); $('mmem').textContent=mem.length?T('Memory: ','זיכרון: ')+mem.map(function(n){return n+'(x)'}).join(', '):'';
+    }catch(e){ lastKind='err'; showRes('<div class="err">'+esc(lang()==='he'?'אי אפשר לחשב את זה. נסו משוואה אחרת.':e.message)+'</div>'); }
+  }
+  function setMTab(w){
+    $('mt-calc').setAttribute('aria-pressed',w==='calc'); $('mt-graph').setAttribute('aria-pressed',w==='graph');
+    $('mv-calc').hidden=w!=='calc'; $('mv-graph').hidden=w!=='graph';
+    if(w==='graph'){ if(!$('gin').value&&lastText)$('gin').value=lastText; plot(!!G.fns.length&&G.src===$('gin').value) }
+  }
+  function startMath(){
+    loadMath(function(){
+      M=window.MathCore; if(!calc){calc=M.createCalculator(); calc.setDegrees(false)}
+      buildPad();
+      if(!mathReady){ mathReady=true; var first=document.querySelectorAll('.eq')[1]; if(first)pickEq(first,true) }
+      else if(lastText) runCalc();
+    });
+  }
+  function pickEq(btn,quiet){
+    document.querySelectorAll('.eq').forEach(function(b){b.setAttribute('aria-pressed',b===btn)});
+    try{var r=document.createRange(); r.selectNodeContents(btn); var s=getSelection(); s.removeAllRanges(); s.addRange(r)}catch(e){}
+    $('min').value=btn.textContent.trim(); setMTab('calc'); runCalc();
+  }
+  document.querySelectorAll('.eq').forEach(function(b){b.addEventListener('click',function(){ if(!M)return startMath(); pickEq(b) })});
+  $('mpage').addEventListener('mouseup',function(e){
+    if(e.target.closest&&e.target.closest('.eq'))return;
+    var s=(getSelection()||'').toString().trim(); if(s.length<2||s.length>80||!/[0-9a-z]/i.test(s))return;
+    if(!M)return; document.querySelectorAll('.eq').forEach(function(b){b.setAttribute('aria-pressed','false')});
+    $('min').value=s.replace(/\s*\n\s*/g,' ; '); setMTab('calc'); runCalc();
+  });
+  $('mgo').addEventListener('click',runCalc);
+  $('min').addEventListener('keydown',function(e){if(e.key==='Enter')runCalc()});
+  $('mt-calc').addEventListener('click',function(){setMTab('calc')});
+  $('mt-graph').addEventListener('click',function(){setMTab('graph')});
+  $('mdeg').addEventListener('click',function(){ if(!calc)return; var d=!calc.getDegrees(); calc.setDegrees(d); $('mdeg').textContent=d?'Deg':'Rad'; runCalc() });
+
+  // graph
+  function buildFns(text){
+    var out=[],errors=[], opts={deg:calc.getDegrees(),vars:calc.state.vars,fns:calc.state.fns};
+    M.splitFunctions(text).slice(0,4).forEach(function(raw){
+      var cl=M.cleanSelection(raw);
+      if(cl.indexOf('=')>=0&&/\by\b/.test(cl)&&!/^\s*y\s*=/.test(cl)){ try{var fy=M.makeYFunction(cl,opts); if(fy){out.push({fn:fy});return}}catch(e){} }
+      var body=M.extractFunctionBody(cl), pieces=body.split('=');
+      if(pieces.length>2){errors.push('Too many "="');return}
+      pieces.forEach(function(p){ try{out.push({fn:M.makeFunction(p,opts)})}catch(e){errors.push(e.message)} });
+    });
+    return {fns:out.slice(0,4),errors:errors};
+  }
+  var safe=function(f,x){try{var v=f(x);return Number.isFinite(v)?v:NaN}catch(e){return NaN}};
+  function fit(){
+    var ys=[]; G.fns.forEach(function(f){for(var i=0;i<=300;i++){var u=0.2+0.6*i/300; ys.push(safe(f.fn,G.x0+(G.x1-G.x0)*u))}});
+    var r=M.autoRange(ys); G.y0=r[0]; G.y1=r[1];
+  }
+  var COL=['#f2a73b','#6fb7ff','#8ee08e','#ff8f8f'];
+  function plot(keep){
+    if(!M)return;
+    var b=buildFns($('gin').value); G.fns=b.fns; G.src=$('gin').value;
+    if(!keep){G.x0=-8;G.x1=8; if(G.fns.length)fit(); else {G.y0=-6;G.y1=6}}
+    gdraw(); analyse(b.errors);
+  }
+  function gdraw(){
+    var cv=$('mcv'), dpr=Math.min(2,window.devicePixelRatio||1), W=cv.clientWidth||600, H=Math.round(W*0.625);
+    cv.width=W*dpr; cv.height=H*dpr; var c=cv.getContext('2d'); c.setTransform(dpr,0,0,dpr,0,0);
+    c.fillStyle='#17140f'; c.fillRect(0,0,W,H);
+    var X=function(x){return (x-G.x0)/(G.x1-G.x0)*W}, Y=function(y){return H-(y-G.y0)/(G.y1-G.y0)*H};
+    c.font='11px system-ui'; c.lineWidth=1;
+    M.ticks(G.x0,G.x1,8).forEach(function(t){var x=X(t); c.strokeStyle='#2c2822'; c.beginPath(); c.moveTo(x,0); c.lineTo(x,H); c.stroke(); if(Math.abs(t)>1e-9){c.fillStyle='#8c8577'; c.fillText(M.formatNumber(t),x+3,Math.min(H-4,Math.max(12,Y(0)+13)))}});
+    M.ticks(G.y0,G.y1,6).forEach(function(t){var y=Y(t); c.strokeStyle='#2c2822'; c.beginPath(); c.moveTo(0,y); c.lineTo(W,y); c.stroke(); if(Math.abs(t)>1e-9){c.fillStyle='#8c8577'; c.fillText(M.formatNumber(t),Math.min(W-30,Math.max(4,X(0)+5)),y-3)}});
+    c.strokeStyle='#6d6558'; c.lineWidth=1.5; c.beginPath(); c.moveTo(X(0),0); c.lineTo(X(0),H); c.moveTo(0,Y(0)); c.lineTo(W,Y(0)); c.stroke();
+    G.fns.forEach(function(f,i){
+      c.strokeStyle=COL[i%4]; c.lineWidth=2.4; c.beginPath(); var pen=false, prev=NaN;
+      for(var px=0;px<=W;px+=1){ var v=safe(f.fn,G.x0+(G.x1-G.x0)*px/W), y=Y(v);
+        if(!Number.isFinite(v)||Math.abs(y)>H*6||(pen&&Math.abs(y-prev)>H*1.5)){pen=false;prev=NaN;continue}
+        if(pen)c.lineTo(px,y); else c.moveTo(px,y); pen=true; prev=y }
+      c.stroke();
+    });
+    var f0=G.fns[0]; if(f0){
+      M.findRoots(f0.fn,G.x0,G.x1,2000).slice(0,8).forEach(function(r){dot(c,X(r),Y(0),'#fff','#17140f')});
+      M.findExtrema(f0.fn,G.x0,G.x1,1200).slice(0,6).forEach(function(p){dot(c,X(p.x),Y(p.y),'#f2a73b','#17140f')});
+    }
+  }
+  function dot(c,x,y,f,s){c.beginPath();c.arc(x,y,5,0,7);c.fillStyle=f;c.fill();c.lineWidth=2;c.strokeStyle=s;c.stroke()}
+  var gf=function(v){return M.formatNumber(Math.abs(v)<1e-9?0:Number(v.toPrecision(5)))};
+  function analyse(errors){
+    var el=$('minfo'); el.textContent=''; var f0=G.fns[0];
+    if(!f0){ el.textContent=errors&&errors[0]?(lang()==='he'?'אי אפשר לצייר את זה.':errors[0]):T('Type a function of x, like x^2 - 4x + 3. Use ; for several.','כתבו פונקציה של x, למשל x^2 - 4x + 3. עם ; אפשר כמה.'); return }
+    var roots=M.findRoots(f0.fn,G.x0,G.x1,3000).slice(0,8), ext=M.findExtrema(f0.fn,G.x0,G.x1,1500).slice(0,6), h='';
+    h+='<div><b>'+T('Roots','שורשים')+'</b> '+(roots.length?roots.map(gf).join(', '):T('none in view','אין בתצוגה'))+'</div>';
+    ext.forEach(function(p){h+='<div><b>'+(p.type==='max'?T('Max','מקסימום'):T('Min','מינימום'))+'</b> ('+gf(p.x)+', '+gf(p.y)+')</div>'});
+    el.innerHTML=h;
+  }
+  $('ggo').addEventListener('click',function(){plot(false)});
+  $('gin').addEventListener('keydown',function(e){if(e.key==='Enter')plot(false)});
+  (function(){
+    var cv=$('mcv'), drag=null, tm=0;
+    var after=function(){gdraw(); clearTimeout(tm); tm=setTimeout(function(){analyse()},120)};
+    cv.addEventListener('pointerdown',function(e){drag={x:e.clientX,y:e.clientY};cv.setPointerCapture(e.pointerId)});
+    cv.addEventListener('pointermove',function(e){ if(!drag||!M)return; var r=cv.getBoundingClientRect(), dx=(e.clientX-drag.x)/r.width*(G.x1-G.x0), dy=(e.clientY-drag.y)/r.height*(G.y1-G.y0); G.x0-=dx;G.x1-=dx;G.y0+=dy;G.y1+=dy; drag={x:e.clientX,y:e.clientY}; after() });
+    cv.addEventListener('pointerup',function(){drag=null});
+    cv.addEventListener('wheel',function(e){ if(!M)return; e.preventDefault(); var r=cv.getBoundingClientRect(), fx=(e.clientX-r.left)/r.width, fy=1-(e.clientY-r.top)/r.height, k=e.deltaY>0?1.15:1/1.15, cx=G.x0+(G.x1-G.x0)*fx, cy=G.y0+(G.y1-G.y0)*fy;
+      G.x0=cx-(cx-G.x0)*k; G.x1=cx+(G.x1-cx)*k; G.y0=cy-(cy-G.y0)*k; G.y1=cy+(G.y1-cy)*k; after() },{passive:false});
+    cv.addEventListener('dblclick',function(){plot(false)});
+    addEventListener('resize',function(){ if(M&&!$('mv-graph').hidden)gdraw() });
+  })();
+
+  // ===== screenshots carousel =====
+  var car=$('car'), track=$('ctrack'), N=document.querySelectorAll('.slide').length, cur=0, auto=true, hover=false, vis=true, ctimer=0, prog=$('cprog');
+  var RM=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches; if(RM)auto=false;
+  var sign=function(){return document.documentElement.dir==='rtl'?1:-1};
+  function go(i,user){
+    cur=(i+N)%N; track.style.transform='translateX('+(sign()*cur*100)+'%)';
+    document.querySelectorAll('#cthumbs button').forEach(function(b,j){b.setAttribute('aria-selected',j===cur)});
+    document.querySelectorAll('.slide').forEach(function(s,j){s.setAttribute('aria-label',(j+1)+' / '+N); s.setAttribute('aria-hidden',j!==cur)});
+    $('ccount').textContent=(cur+1)+' / '+N;
+    if(user)auto=false; schedule();
+  }
+  function schedule(){
+    clearTimeout(ctimer); prog.classList.remove('run'); void prog.offsetWidth;
+    if(!auto||hover||!vis||RM)return;
+    prog.classList.add('run'); ctimer=setTimeout(function(){go(cur+1)},6500);
+  }
+  $('cprev').addEventListener('click',function(){go(cur-1,true)}); $('cnext').addEventListener('click',function(){go(cur+1,true)});
+  document.querySelectorAll('#cthumbs button').forEach(function(b){b.addEventListener('click',function(){go(+b.getAttribute('data-i'),true)})});
+  car.addEventListener('mouseenter',function(){hover=true;schedule()}); car.addEventListener('mouseleave',function(){hover=false;schedule()});
+  car.addEventListener('keydown',function(e){
+    var rtl=document.documentElement.dir==='rtl';
+    if(e.key==='ArrowRight')go(cur+(rtl?-1:1),true); else if(e.key==='ArrowLeft')go(cur+(rtl?1:-1),true);
+    else if(e.key==='Enter'||e.key===' '){ if(e.target===car){e.preventDefault();openLb()} }
+  });
+  if('IntersectionObserver' in window)new IntersectionObserver(function(es){vis=es[0].isIntersecting;schedule()},{threshold:.35}).observe(car);
+  // swipe
+  (function(){
+    var st=null, stage=$('cstage'), moved=false;
+    stage.addEventListener('pointerdown',function(e){ if(e.target.closest('button'))return; st={x:e.clientX,id:e.pointerId}; moved=false });
+    stage.addEventListener('pointermove',function(e){ if(!st)return; var dx=e.clientX-st.x; if(Math.abs(dx)>6){moved=true;track.classList.add('drag'); track.style.transform='translateX(calc('+(sign()*cur*100)+'% + '+dx+'px))'} });
+    var end=function(e){ if(!st)return; var dx=e.clientX-st.x; track.classList.remove('drag'); st=null;
+      if(Math.abs(dx)>50){ go(cur+((dx>0)===(document.documentElement.dir==='rtl')?1:-1),true) } else go(cur,false); if(moved)stage._sw=Date.now() };
+    stage.addEventListener('pointerup',end); stage.addEventListener('pointercancel',end);
+    stage.addEventListener('click',function(e){ if(stage._sw&&Date.now()-stage._sw<250)return; if(e.target.tagName==='IMG')openLb() });
+  })();
+  // lightbox
+  var lb=$('lb'), lbimg=$('lbimg');
+  function lbShow(){ var s=document.querySelectorAll('.slide')[cur], im=s.querySelector('img'); lbimg.src=im.src; lbimg.alt=im.alt; lbimg.classList.remove('full'); $('lbcap').textContent=s.querySelector('figcaption').textContent; }
+  function openLb(){ auto=false; schedule(); lbShow(); if(lb.showModal)lb.showModal(); else lb.setAttribute('open','') }
+  $('czoom').addEventListener('click',openLb);
+  $('lbx').addEventListener('click',function(){lb.close()});
+  $('lbp').addEventListener('click',function(){go(cur-1,true);lbShow()}); $('lbn').addEventListener('click',function(){go(cur+1,true);lbShow()});
+  lbimg.addEventListener('click',function(){lbimg.classList.toggle('full')});
+  $('lbin').addEventListener('click',function(e){ if(e.target===$('lbin'))lb.close() });
+  lb.addEventListener('keydown',function(e){ var rtl=document.documentElement.dir==='rtl';
+    if(e.key==='ArrowRight'){go(cur+(rtl?-1:1),true);lbShow()} else if(e.key==='ArrowLeft'){go(cur+(rtl?1:-1),true);lbShow()} });
+  go(0,false);
+  // language hooks
+  var oldDemo=window.cpDemo;
+  window.cpDemo=function(l){ if(oldDemo)oldDemo(l); go(cur,false); document.querySelectorAll('[data-label-'+lang()+']').forEach(function(el){el.setAttribute('aria-label',el.getAttribute('data-label-'+lang()))});
+    if(M){ if(lastText&&$('mv-calc').hidden===false)runCalc(); if(!$('mv-graph').hidden)analyse() } };
   draw();
 })();
 </script>
